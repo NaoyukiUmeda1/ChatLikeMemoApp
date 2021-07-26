@@ -1,0 +1,592 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		92BF8AA726AEE628005C0A4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF8AA626AEE628005C0A4C /* AppDelegate.swift */; };
+		92BF8AA926AEE628005C0A4C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF8AA826AEE628005C0A4C /* SceneDelegate.swift */; };
+		92BF8AAB26AEE628005C0A4C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF8AAA26AEE628005C0A4C /* ViewController.swift */; };
+		92BF8AAE26AEE629005C0A4C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92BF8AAC26AEE629005C0A4C /* Main.storyboard */; };
+		92BF8AB026AEE62C005C0A4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92BF8AAF26AEE62C005C0A4C /* Assets.xcassets */; };
+		92BF8AB326AEE62C005C0A4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92BF8AB126AEE62C005C0A4C /* LaunchScreen.storyboard */; };
+		92BF8ABE26AEE62C005C0A4C /* ChatLikeMemoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF8ABD26AEE62C005C0A4C /* ChatLikeMemoAppTests.swift */; };
+		92BF8AC926AEE62C005C0A4C /* ChatLikeMemoAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF8AC826AEE62C005C0A4C /* ChatLikeMemoAppUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		92BF8ABA26AEE62C005C0A4C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 92BF8A9B26AEE628005C0A4C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 92BF8AA226AEE628005C0A4C;
+			remoteInfo = ChatLikeMemoApp;
+		};
+		92BF8AC526AEE62C005C0A4C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 92BF8A9B26AEE628005C0A4C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 92BF8AA226AEE628005C0A4C;
+			remoteInfo = ChatLikeMemoApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		92BF8AA326AEE628005C0A4C /* ChatLikeMemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatLikeMemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		92BF8AA626AEE628005C0A4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		92BF8AA826AEE628005C0A4C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		92BF8AAA26AEE628005C0A4C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		92BF8AAD26AEE629005C0A4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		92BF8AAF26AEE62C005C0A4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		92BF8AB226AEE62C005C0A4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		92BF8AB426AEE62C005C0A4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92BF8AB926AEE62C005C0A4C /* ChatLikeMemoAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChatLikeMemoAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		92BF8ABD26AEE62C005C0A4C /* ChatLikeMemoAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLikeMemoAppTests.swift; sourceTree = "<group>"; };
+		92BF8ABF26AEE62C005C0A4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92BF8AC426AEE62C005C0A4C /* ChatLikeMemoAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChatLikeMemoAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		92BF8AC826AEE62C005C0A4C /* ChatLikeMemoAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLikeMemoAppUITests.swift; sourceTree = "<group>"; };
+		92BF8ACA26AEE62C005C0A4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		92BF8AA026AEE628005C0A4C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92BF8AB626AEE62C005C0A4C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92BF8AC126AEE62C005C0A4C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		92BF8A9A26AEE628005C0A4C = {
+			isa = PBXGroup;
+			children = (
+				92BF8AA526AEE628005C0A4C /* ChatLikeMemoApp */,
+				92BF8ABC26AEE62C005C0A4C /* ChatLikeMemoAppTests */,
+				92BF8AC726AEE62C005C0A4C /* ChatLikeMemoAppUITests */,
+				92BF8AA426AEE628005C0A4C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		92BF8AA426AEE628005C0A4C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				92BF8AA326AEE628005C0A4C /* ChatLikeMemoApp.app */,
+				92BF8AB926AEE62C005C0A4C /* ChatLikeMemoAppTests.xctest */,
+				92BF8AC426AEE62C005C0A4C /* ChatLikeMemoAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		92BF8AA526AEE628005C0A4C /* ChatLikeMemoApp */ = {
+			isa = PBXGroup;
+			children = (
+				92BF8AA626AEE628005C0A4C /* AppDelegate.swift */,
+				92BF8AA826AEE628005C0A4C /* SceneDelegate.swift */,
+				92BF8AAA26AEE628005C0A4C /* ViewController.swift */,
+				92BF8AAC26AEE629005C0A4C /* Main.storyboard */,
+				92BF8AAF26AEE62C005C0A4C /* Assets.xcassets */,
+				92BF8AB126AEE62C005C0A4C /* LaunchScreen.storyboard */,
+				92BF8AB426AEE62C005C0A4C /* Info.plist */,
+			);
+			path = ChatLikeMemoApp;
+			sourceTree = "<group>";
+		};
+		92BF8ABC26AEE62C005C0A4C /* ChatLikeMemoAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				92BF8ABD26AEE62C005C0A4C /* ChatLikeMemoAppTests.swift */,
+				92BF8ABF26AEE62C005C0A4C /* Info.plist */,
+			);
+			path = ChatLikeMemoAppTests;
+			sourceTree = "<group>";
+		};
+		92BF8AC726AEE62C005C0A4C /* ChatLikeMemoAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				92BF8AC826AEE62C005C0A4C /* ChatLikeMemoAppUITests.swift */,
+				92BF8ACA26AEE62C005C0A4C /* Info.plist */,
+			);
+			path = ChatLikeMemoAppUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		92BF8AA226AEE628005C0A4C /* ChatLikeMemoApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 92BF8ACD26AEE62C005C0A4C /* Build configuration list for PBXNativeTarget "ChatLikeMemoApp" */;
+			buildPhases = (
+				92BF8A9F26AEE628005C0A4C /* Sources */,
+				92BF8AA026AEE628005C0A4C /* Frameworks */,
+				92BF8AA126AEE628005C0A4C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ChatLikeMemoApp;
+			productName = ChatLikeMemoApp;
+			productReference = 92BF8AA326AEE628005C0A4C /* ChatLikeMemoApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		92BF8AB826AEE62C005C0A4C /* ChatLikeMemoAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 92BF8AD026AEE62C005C0A4C /* Build configuration list for PBXNativeTarget "ChatLikeMemoAppTests" */;
+			buildPhases = (
+				92BF8AB526AEE62C005C0A4C /* Sources */,
+				92BF8AB626AEE62C005C0A4C /* Frameworks */,
+				92BF8AB726AEE62C005C0A4C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				92BF8ABB26AEE62C005C0A4C /* PBXTargetDependency */,
+			);
+			name = ChatLikeMemoAppTests;
+			productName = ChatLikeMemoAppTests;
+			productReference = 92BF8AB926AEE62C005C0A4C /* ChatLikeMemoAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		92BF8AC326AEE62C005C0A4C /* ChatLikeMemoAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 92BF8AD326AEE62C005C0A4C /* Build configuration list for PBXNativeTarget "ChatLikeMemoAppUITests" */;
+			buildPhases = (
+				92BF8AC026AEE62C005C0A4C /* Sources */,
+				92BF8AC126AEE62C005C0A4C /* Frameworks */,
+				92BF8AC226AEE62C005C0A4C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				92BF8AC626AEE62C005C0A4C /* PBXTargetDependency */,
+			);
+			name = ChatLikeMemoAppUITests;
+			productName = ChatLikeMemoAppUITests;
+			productReference = 92BF8AC426AEE62C005C0A4C /* ChatLikeMemoAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		92BF8A9B26AEE628005C0A4C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					92BF8AA226AEE628005C0A4C = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					92BF8AB826AEE62C005C0A4C = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 92BF8AA226AEE628005C0A4C;
+					};
+					92BF8AC326AEE62C005C0A4C = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 92BF8AA226AEE628005C0A4C;
+					};
+				};
+			};
+			buildConfigurationList = 92BF8A9E26AEE628005C0A4C /* Build configuration list for PBXProject "ChatLikeMemoApp" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 92BF8A9A26AEE628005C0A4C;
+			productRefGroup = 92BF8AA426AEE628005C0A4C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				92BF8AA226AEE628005C0A4C /* ChatLikeMemoApp */,
+				92BF8AB826AEE62C005C0A4C /* ChatLikeMemoAppTests */,
+				92BF8AC326AEE62C005C0A4C /* ChatLikeMemoAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		92BF8AA126AEE628005C0A4C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92BF8AB326AEE62C005C0A4C /* LaunchScreen.storyboard in Resources */,
+				92BF8AB026AEE62C005C0A4C /* Assets.xcassets in Resources */,
+				92BF8AAE26AEE629005C0A4C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92BF8AB726AEE62C005C0A4C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92BF8AC226AEE62C005C0A4C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		92BF8A9F26AEE628005C0A4C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92BF8AAB26AEE628005C0A4C /* ViewController.swift in Sources */,
+				92BF8AA726AEE628005C0A4C /* AppDelegate.swift in Sources */,
+				92BF8AA926AEE628005C0A4C /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92BF8AB526AEE62C005C0A4C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92BF8ABE26AEE62C005C0A4C /* ChatLikeMemoAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92BF8AC026AEE62C005C0A4C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92BF8AC926AEE62C005C0A4C /* ChatLikeMemoAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		92BF8ABB26AEE62C005C0A4C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 92BF8AA226AEE628005C0A4C /* ChatLikeMemoApp */;
+			targetProxy = 92BF8ABA26AEE62C005C0A4C /* PBXContainerItemProxy */;
+		};
+		92BF8AC626AEE62C005C0A4C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 92BF8AA226AEE628005C0A4C /* ChatLikeMemoApp */;
+			targetProxy = 92BF8AC526AEE62C005C0A4C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		92BF8AAC26AEE629005C0A4C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				92BF8AAD26AEE629005C0A4C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		92BF8AB126AEE62C005C0A4C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				92BF8AB226AEE62C005C0A4C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		92BF8ACB26AEE62C005C0A4C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		92BF8ACC26AEE62C005C0A4C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		92BF8ACE26AEE62C005C0A4C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ChatLikeMemoApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = NaoyukiUmeda.xcode.ChatLikeMemoApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		92BF8ACF26AEE62C005C0A4C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ChatLikeMemoApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = NaoyukiUmeda.xcode.ChatLikeMemoApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		92BF8AD126AEE62C005C0A4C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ChatLikeMemoAppTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = NaoyukiUmeda.xcode.ChatLikeMemoAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChatLikeMemoApp.app/ChatLikeMemoApp";
+			};
+			name = Debug;
+		};
+		92BF8AD226AEE62C005C0A4C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ChatLikeMemoAppTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = NaoyukiUmeda.xcode.ChatLikeMemoAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChatLikeMemoApp.app/ChatLikeMemoApp";
+			};
+			name = Release;
+		};
+		92BF8AD426AEE62C005C0A4C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ChatLikeMemoAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = NaoyukiUmeda.xcode.ChatLikeMemoAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ChatLikeMemoApp;
+			};
+			name = Debug;
+		};
+		92BF8AD526AEE62C005C0A4C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ChatLikeMemoAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = NaoyukiUmeda.xcode.ChatLikeMemoAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ChatLikeMemoApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		92BF8A9E26AEE628005C0A4C /* Build configuration list for PBXProject "ChatLikeMemoApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92BF8ACB26AEE62C005C0A4C /* Debug */,
+				92BF8ACC26AEE62C005C0A4C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		92BF8ACD26AEE62C005C0A4C /* Build configuration list for PBXNativeTarget "ChatLikeMemoApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92BF8ACE26AEE62C005C0A4C /* Debug */,
+				92BF8ACF26AEE62C005C0A4C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		92BF8AD026AEE62C005C0A4C /* Build configuration list for PBXNativeTarget "ChatLikeMemoAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92BF8AD126AEE62C005C0A4C /* Debug */,
+				92BF8AD226AEE62C005C0A4C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		92BF8AD326AEE62C005C0A4C /* Build configuration list for PBXNativeTarget "ChatLikeMemoAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92BF8AD426AEE62C005C0A4C /* Debug */,
+				92BF8AD526AEE62C005C0A4C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 92BF8A9B26AEE628005C0A4C /* Project object */;
+}
