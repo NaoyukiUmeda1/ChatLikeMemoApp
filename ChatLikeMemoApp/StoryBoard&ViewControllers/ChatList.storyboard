@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="IeG-mz-fuB">
+            <objects>
+                <navigationController id="FV0-j9-VEh" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="x9a-a1-zqy">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="DsE-gt-R0O" kind="relationship" relationship="rootViewController" id="xIq-vM-g6I"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mdb-fg-7PH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-907" y="155"/>
+        </scene>
+        <!--Chat List View Controller-->
+        <scene sceneID="yHb-tO-Z7z">
+            <objects>
+                <viewController storyboardIdentifier="ChatListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DsE-gt-R0O" customClass="ChatListViewController" customModule="Chat風MemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="X2R-g1-MuE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cZc-iX-JEg">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellId" rowHeight="70" id="Pf8-V4-Qxg" customClass="ChatListTableViewCell" customModule="Chat風MemoApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Pf8-V4-Qxg" id="PCH-3V-dOM">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メモタイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msT-hK-wKT">
+                                                    <rect key="frame" x="30" y="21" width="86" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LastUpdated" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uU8-Eq-Pge">
+                                                    <rect key="frame" x="310.5" y="21" width="83.5" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="msT-hK-wKT" firstAttribute="top" secondItem="PCH-3V-dOM" secondAttribute="topMargin" constant="10" id="O97-0N-Qh5"/>
+                                                <constraint firstAttribute="trailing" secondItem="uU8-Eq-Pge" secondAttribute="trailing" constant="20" id="cod-6h-ZIz"/>
+                                                <constraint firstItem="uU8-Eq-Pge" firstAttribute="top" secondItem="PCH-3V-dOM" secondAttribute="topMargin" constant="10" id="qx1-9h-Y7c"/>
+                                                <constraint firstItem="msT-hK-wKT" firstAttribute="leading" secondItem="PCH-3V-dOM" secondAttribute="leadingMargin" constant="10" id="yji-cJ-9eD"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="lastUpdatedTimeLabel" destination="uU8-Eq-Pge" id="FOC-ap-ih4"/>
+                                            <outlet property="memoTitleLabel" destination="msT-hK-wKT" id="3ev-ea-rLG"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="zai-te-AKy"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zai-te-AKy" firstAttribute="bottom" secondItem="cZc-iX-JEg" secondAttribute="bottom" id="7mW-x5-dhO"/>
+                            <constraint firstItem="cZc-iX-JEg" firstAttribute="top" secondItem="zai-te-AKy" secondAttribute="top" id="AlM-ze-iGw"/>
+                            <constraint firstItem="cZc-iX-JEg" firstAttribute="leading" secondItem="zai-te-AKy" secondAttribute="leading" id="Wkx-jb-3EX"/>
+                            <constraint firstItem="zai-te-AKy" firstAttribute="trailing" secondItem="cZc-iX-JEg" secondAttribute="trailing" id="yHM-F9-mZm"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Qli-jt-KGB">
+                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" style="plain" id="R8P-lu-vKc">
+                            <connections>
+                                <action selector="addNewMemoListButton:" destination="DsE-gt-R0O" id="Wzt-WP-VfP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addNewMemoListButton" destination="R8P-lu-vKc" id="7dy-cq-dtG"/>
+                        <outlet property="chatListTableView" destination="cZc-iX-JEg" id="z8s-El-OhZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yB7-CH-GLq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-63" y="156"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="plus" catalog="system" width="128" height="113"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="dEa-Fa-VGr">
+            <objects>
+                <navigationController id="4Pe-hD-Whj" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3pJ-Yd-z8D">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="8NJ-6P-cDt" kind="relationship" relationship="rootViewController" id="kkL-5K-FgG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rxR-yF-aMW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-943" y="61"/>
+        </scene>
+        <!--Chat Room View Controller-->
+        <scene sceneID="IOn-LH-4Bz">
+            <objects>
+                <viewController storyboardIdentifier="ChatRoomViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8NJ-6P-cDt" customClass="ChatRoomViewController" customModule="Chat風MemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Hft-HY-mCC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="caO-Gc-VDj">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="37N-g9-3ad"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="caO-Gc-VDj" firstAttribute="top" secondItem="37N-g9-3ad" secondAttribute="top" id="8qE-MM-2Jl"/>
+                            <constraint firstItem="caO-Gc-VDj" firstAttribute="leading" secondItem="37N-g9-3ad" secondAttribute="leading" id="G9L-OO-QT9"/>
+                            <constraint firstItem="caO-Gc-VDj" firstAttribute="trailing" secondItem="37N-g9-3ad" secondAttribute="trailing" id="WqO-sg-27R"/>
+                            <constraint firstItem="caO-Gc-VDj" firstAttribute="bottom" secondItem="37N-g9-3ad" secondAttribute="bottom" id="u7a-Tf-eZU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="JLI-Ke-2hd">
+                        <barButtonItem key="rightBarButtonItem" title="メモ削除" image="trash" catalog="system" id="Ijw-P3-AhQ">
+                            <connections>
+                                <action selector="memoDeleteButtonAction:" destination="8NJ-6P-cDt" id="5if-TZ-23B"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="chatRoomTableView" destination="caO-Gc-VDj" id="3mY-iA-I3O"/>
+                        <outlet property="memoDeleteButton" destination="Ijw-P3-AhQ" id="yC4-Ma-ubI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Svh-aC-Bit" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="83" y="61"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="trash" catalog="system" width="121" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
