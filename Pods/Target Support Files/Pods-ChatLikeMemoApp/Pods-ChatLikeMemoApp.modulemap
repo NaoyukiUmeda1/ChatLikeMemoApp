@@ -1,0 +1,6 @@
+framework module Pods_ChatLikeMemoApp {
+  umbrella header "Pods-ChatLikeMemoApp-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SignUpViewController: UIViewController {
 
@@ -16,6 +17,25 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var alreadyHaveAccountButton: UIButton!
     @IBOutlet weak var noRegisterToUseButton: UIButton!
+    
+    
+    @IBAction func tappedResisterButton(_ sender: Any) {
+        handleAuthToFirebase()
+    }
+    
+    private func handleAuthToFirebase() {
+        guard let email = emailTextField.text else { return }
+        //デフォルトでは6桁以上のパスワードでないと登録できない
+        guard let password = passwordTextField.text else { return }
+        
+        Auth.auth().createUser(withEmail: email, password: password) { (res, err) in
+            if let err = err {
+                print("認証情報の保存に失敗しました \(err)")
+            }
+            print("認証情報の保存に成功しました")
+            
+        }
+    }
     
     
     override func viewDidLoad() {

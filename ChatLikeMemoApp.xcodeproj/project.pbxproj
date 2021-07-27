@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		61892A44ED2AA68144F4608A /* Pods_ChatLikeMemoApp_ChatLikeMemoAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C9D79964ED889ADF6EB819 /* Pods_ChatLikeMemoApp_ChatLikeMemoAppUITests.framework */; };
+		7237232ECFED6C341B6E8ECB /* Pods_ChatLikeMemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E6A862DCAD06D283ADA0163 /* Pods_ChatLikeMemoApp.framework */; };
+		929EB56E26B0120700E1A442 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 929EB56D26B0120700E1A442 /* GoogleService-Info.plist */; };
 		92BF8AA726AEE628005C0A4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF8AA626AEE628005C0A4C /* AppDelegate.swift */; };
 		92BF8AA926AEE628005C0A4C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF8AA826AEE628005C0A4C /* SceneDelegate.swift */; };
 		92BF8AB026AEE62C005C0A4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92BF8AAF26AEE62C005C0A4C /* Assets.xcassets */; };
@@ -26,6 +29,7 @@
 		92BF8B1526AEEC77005C0A4C /* ChatRoom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92BF8B1426AEEC77005C0A4C /* ChatRoom.storyboard */; };
 		92BF8B1A26AEEC7E005C0A4C /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92BF8B1926AEEC7E005C0A4C /* SignUp.storyboard */; };
 		92BF8B1F26AEEC84005C0A4C /* LogIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92BF8B1E26AEEC84005C0A4C /* LogIn.storyboard */; };
+		DDBDA43A95D03B94FAA300CF /* Pods_ChatLikeMemoAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38A194F0FC521947DDD723A7 /* Pods_ChatLikeMemoAppTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +50,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D5766E6E8660DDC8DCB368F /* Pods-ChatLikeMemoApp-ChatLikeMemoAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatLikeMemoApp-ChatLikeMemoAppUITests.release.xcconfig"; path = "Target Support Files/Pods-ChatLikeMemoApp-ChatLikeMemoAppUITests/Pods-ChatLikeMemoApp-ChatLikeMemoAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		38A194F0FC521947DDD723A7 /* Pods_ChatLikeMemoAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatLikeMemoAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E6A862DCAD06D283ADA0163 /* Pods_ChatLikeMemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatLikeMemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		718A8F6A73028C7DE70F0FD7 /* Pods-ChatLikeMemoAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatLikeMemoAppTests.debug.xcconfig"; path = "Target Support Files/Pods-ChatLikeMemoAppTests/Pods-ChatLikeMemoAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8FFE4C679609D3AF9B61341A /* Pods-ChatLikeMemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatLikeMemoApp.debug.xcconfig"; path = "Target Support Files/Pods-ChatLikeMemoApp/Pods-ChatLikeMemoApp.debug.xcconfig"; sourceTree = "<group>"; };
+		929EB56D26B0120700E1A442 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		92BF8AA326AEE628005C0A4C /* ChatLikeMemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatLikeMemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92BF8AA626AEE628005C0A4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92BF8AA826AEE628005C0A4C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +81,10 @@
 		92BF8B1426AEEC77005C0A4C /* ChatRoom.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChatRoom.storyboard; sourceTree = "<group>"; };
 		92BF8B1926AEEC7E005C0A4C /* SignUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		92BF8B1E26AEEC84005C0A4C /* LogIn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LogIn.storyboard; sourceTree = "<group>"; };
+		93C9D79964ED889ADF6EB819 /* Pods_ChatLikeMemoApp_ChatLikeMemoAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatLikeMemoApp_ChatLikeMemoAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D74FBC21E1654845E4A00802 /* Pods-ChatLikeMemoAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatLikeMemoAppTests.release.xcconfig"; path = "Target Support Files/Pods-ChatLikeMemoAppTests/Pods-ChatLikeMemoAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		EED0EF1D780D11CDA6FD1650 /* Pods-ChatLikeMemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatLikeMemoApp.release.xcconfig"; path = "Target Support Files/Pods-ChatLikeMemoApp/Pods-ChatLikeMemoApp.release.xcconfig"; sourceTree = "<group>"; };
+		FC6D50FE235C51FDA8E306F5 /* Pods-ChatLikeMemoApp-ChatLikeMemoAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatLikeMemoApp-ChatLikeMemoAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-ChatLikeMemoApp-ChatLikeMemoAppUITests/Pods-ChatLikeMemoApp-ChatLikeMemoAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7237232ECFED6C341B6E8ECB /* Pods_ChatLikeMemoApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDBDA43A95D03B94FAA300CF /* Pods_ChatLikeMemoAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,12 +108,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61892A44ED2AA68144F4608A /* Pods_ChatLikeMemoApp_ChatLikeMemoAppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		543AC91B0C8AE77B44C694FA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3E6A862DCAD06D283ADA0163 /* Pods_ChatLikeMemoApp.framework */,
+				93C9D79964ED889ADF6EB819 /* Pods_ChatLikeMemoApp_ChatLikeMemoAppUITests.framework */,
+				38A194F0FC521947DDD723A7 /* Pods_ChatLikeMemoAppTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		92BF8A9A26AEE628005C0A4C = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +132,8 @@
 				92BF8ABC26AEE62C005C0A4C /* ChatLikeMemoAppTests */,
 				92BF8AC726AEE62C005C0A4C /* ChatLikeMemoAppUITests */,
 				92BF8AA426AEE628005C0A4C /* Products */,
+				B40791ED266F5A12CABDCD0C /* Pods */,
+				543AC91B0C8AE77B44C694FA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -129,6 +158,7 @@
 				92BF8AAF26AEE62C005C0A4C /* Assets.xcassets */,
 				92BF8AB126AEE62C005C0A4C /* LaunchScreen.storyboard */,
 				92BF8AB426AEE62C005C0A4C /* Info.plist */,
+				929EB56D26B0120700E1A442 /* GoogleService-Info.plist */,
 			);
 			path = ChatLikeMemoApp;
 			sourceTree = "<group>";
@@ -165,14 +195,14 @@
 		92BF8B2C26AEEEAC005C0A4C /* StoryBoard&ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				92BF8B0F26AEEC6E005C0A4C /* ChatList.storyboard */,
-				92BF8B1426AEEC77005C0A4C /* ChatRoom.storyboard */,
 				92BF8B1926AEEC7E005C0A4C /* SignUp.storyboard */,
 				92BF8B1E26AEEC84005C0A4C /* LogIn.storyboard */,
-				92BF8AFA26AEE879005C0A4C /* LoginViewController.swift */,
+				92BF8B0F26AEEC6E005C0A4C /* ChatList.storyboard */,
+				92BF8B1426AEEC77005C0A4C /* ChatRoom.storyboard */,
 				92BF8AF526AEE84D005C0A4C /* SignUpViewController.swift */,
-				92BF8AF026AEE82C005C0A4C /* ChatRoomViewController.swift */,
+				92BF8AFA26AEE879005C0A4C /* LoginViewController.swift */,
 				92BF8AEB26AEE80C005C0A4C /* ChatListViewController.swift */,
+				92BF8AF026AEE82C005C0A4C /* ChatRoomViewController.swift */,
 			);
 			path = "StoryBoard&ViewControllers";
 			sourceTree = "<group>";
@@ -185,6 +215,19 @@
 			path = UIColorExtension;
 			sourceTree = "<group>";
 		};
+		B40791ED266F5A12CABDCD0C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8FFE4C679609D3AF9B61341A /* Pods-ChatLikeMemoApp.debug.xcconfig */,
+				EED0EF1D780D11CDA6FD1650 /* Pods-ChatLikeMemoApp.release.xcconfig */,
+				FC6D50FE235C51FDA8E306F5 /* Pods-ChatLikeMemoApp-ChatLikeMemoAppUITests.debug.xcconfig */,
+				2D5766E6E8660DDC8DCB368F /* Pods-ChatLikeMemoApp-ChatLikeMemoAppUITests.release.xcconfig */,
+				718A8F6A73028C7DE70F0FD7 /* Pods-ChatLikeMemoAppTests.debug.xcconfig */,
+				D74FBC21E1654845E4A00802 /* Pods-ChatLikeMemoAppTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -192,9 +235,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 92BF8ACD26AEE62C005C0A4C /* Build configuration list for PBXNativeTarget "ChatLikeMemoApp" */;
 			buildPhases = (
+				2EC5B9FC7AB489ACD8F71DAF /* [CP] Check Pods Manifest.lock */,
 				92BF8A9F26AEE628005C0A4C /* Sources */,
 				92BF8AA026AEE628005C0A4C /* Frameworks */,
 				92BF8AA126AEE628005C0A4C /* Resources */,
+				752087485CAAE3FF935036C6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -209,6 +254,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 92BF8AD026AEE62C005C0A4C /* Build configuration list for PBXNativeTarget "ChatLikeMemoAppTests" */;
 			buildPhases = (
+				6FC3490E79AB8721AD2540E0 /* [CP] Check Pods Manifest.lock */,
 				92BF8AB526AEE62C005C0A4C /* Sources */,
 				92BF8AB626AEE62C005C0A4C /* Frameworks */,
 				92BF8AB726AEE62C005C0A4C /* Resources */,
@@ -227,9 +273,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 92BF8AD326AEE62C005C0A4C /* Build configuration list for PBXNativeTarget "ChatLikeMemoAppUITests" */;
 			buildPhases = (
+				AAC6FCEABF48F686E7F1565F /* [CP] Check Pods Manifest.lock */,
 				92BF8AC026AEE62C005C0A4C /* Sources */,
 				92BF8AC126AEE62C005C0A4C /* Frameworks */,
 				92BF8AC226AEE62C005C0A4C /* Resources */,
+				AB7D4C5622A31A414830979F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -290,6 +338,7 @@
 			files = (
 				92BF8B1F26AEEC84005C0A4C /* LogIn.storyboard in Resources */,
 				92BF8B0B26AEEC64005C0A4C /* ChatInputAccesaryView.xib in Resources */,
+				929EB56E26B0120700E1A442 /* GoogleService-Info.plist in Resources */,
 				92BF8AB326AEE62C005C0A4C /* LaunchScreen.storyboard in Resources */,
 				92BF8AB026AEE62C005C0A4C /* Assets.xcassets in Resources */,
 				92BF8B1A26AEEC7E005C0A4C /* SignUp.storyboard in Resources */,
@@ -314,6 +363,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2EC5B9FC7AB489ACD8F71DAF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ChatLikeMemoApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6FC3490E79AB8721AD2540E0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ChatLikeMemoAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		752087485CAAE3FF935036C6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChatLikeMemoApp/Pods-ChatLikeMemoApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChatLikeMemoApp/Pods-ChatLikeMemoApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChatLikeMemoApp/Pods-ChatLikeMemoApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AAC6FCEABF48F686E7F1565F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ChatLikeMemoApp-ChatLikeMemoAppUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AB7D4C5622A31A414830979F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChatLikeMemoApp-ChatLikeMemoAppUITests/Pods-ChatLikeMemoApp-ChatLikeMemoAppUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChatLikeMemoApp-ChatLikeMemoAppUITests/Pods-ChatLikeMemoApp-ChatLikeMemoAppUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChatLikeMemoApp-ChatLikeMemoAppUITests/Pods-ChatLikeMemoApp-ChatLikeMemoAppUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		92BF8A9F26AEE628005C0A4C /* Sources */ = {
@@ -493,6 +645,7 @@
 		};
 		92BF8ACE26AEE62C005C0A4C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8FFE4C679609D3AF9B61341A /* Pods-ChatLikeMemoApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -511,6 +664,7 @@
 		};
 		92BF8ACF26AEE62C005C0A4C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EED0EF1D780D11CDA6FD1650 /* Pods-ChatLikeMemoApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -529,6 +683,7 @@
 		};
 		92BF8AD126AEE62C005C0A4C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 718A8F6A73028C7DE70F0FD7 /* Pods-ChatLikeMemoAppTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -550,6 +705,7 @@
 		};
 		92BF8AD226AEE62C005C0A4C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D74FBC21E1654845E4A00802 /* Pods-ChatLikeMemoAppTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -571,6 +727,7 @@
 		};
 		92BF8AD426AEE62C005C0A4C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FC6D50FE235C51FDA8E306F5 /* Pods-ChatLikeMemoApp-ChatLikeMemoAppUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -590,6 +747,7 @@
 		};
 		92BF8AD526AEE62C005C0A4C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D5766E6E8660DDC8DCB368F /* Pods-ChatLikeMemoApp-ChatLikeMemoAppUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
