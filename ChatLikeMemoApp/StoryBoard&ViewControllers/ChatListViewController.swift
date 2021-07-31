@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ChatListViewController: UIViewController {
     
@@ -14,6 +15,13 @@ class ChatListViewController: UIViewController {
             print("user", user?.name)
         }
     }
+    
+    //Firrstoreにデータを保存するところで使用
+    private let db = Firestore.firestore()
+    var ref: DocumentReference? = nil
+    //var memorooms = [MemoRoom]()
+    var documentIdArray:[String] = []
+    public var selectedMemoList : String?
     
 
     private let cellID = "cellId"
@@ -44,18 +52,49 @@ class ChatListViewController: UIViewController {
                 style: UIAlertAction.Style.default) { _ in
                 if let text = alertTextField?.text {
                     
-                    self.memoListTheme.append(text)
-                    //self.memoListTheme(IndexPath.row) = text
-                    //変数の中身をUDに追加（firebaseを使っていないので）
-                    //forkeyのところは何でも可能
-                    UserDefaults.standard.set(self.memoListTheme, forKey: "memoListTheme" )
-                    self.chatListTableView.reloadData()
-                                }
+                    
+                    //firebaseにデータを保存
+                    if let user = Auth.auth().currentUser {
+                        let createdTime = FieldValue.serverTimestamp()
+                        
+                        self.db.collection("memoTitle").document().setData(
+                            
+                            ["memoTitle": text,
+                            "createdAt": createdTime,
+                            "updtedAt": createdTime,
+                            "uid": Auth.auth().currentUser?.uid,
+                            ],merge: true,completion: { err in
+                                if let err = err {
+                                print("Error")
+                            } else {
+                                print("配列にメモ題名追加成功")
+                                //ここからFirebaseからデータを取得して一覧表示する
+                                // FirestoreからTodoを取得する処理
+                                Firestore.firestore().collection("memoTitle").order(by: "createdAt", descending: true).getDocuments(completion: { (querySnapshot,error) in
+                                    if let querySnapshot = querySnapshot {
+                                        var titleArray:[String] = []
+                                        
+                                        for doc in querySnapshot.documents {
+                                            let data = doc.data()
+                                            titleArray.append(data["memoTitle"] as! String)
+                                        }
+                                        self.memoListTheme = titleArray
+                                        print(self.memoListTheme)
+                                        self.chatListTableView.reloadData()
+                                    }
+                                })
+                                self.chatListTableView.reloadData()
+                                print(self.memoListTheme)
+                            return
                             }
-        )
-                            self.present(alert, animated: true, completion: nil)
-                        }
-    
+                            }
+                        )}
+                    }
+                }
+            )
+        self.present(alert, animated: true, completion: nil)
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
