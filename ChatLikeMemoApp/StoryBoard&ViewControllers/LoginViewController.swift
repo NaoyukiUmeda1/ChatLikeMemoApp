@@ -24,6 +24,8 @@ class LoginViewController : UIViewController {
         loginButton.isEnabled = false
         loginButton.layer.cornerRadius = 15
         loginButton.layer.borderWidth = 1
+        loginButton.layer.borderColor = UIColor.rgb(red: 240, green: 240, blue: 240).cgColor
+        loginButton.backgroundColor = .rgb(red: 198, green: 156, blue: 197)
         emailTextField.delegate = self
         passwordTextField.delegate = self
         passwordTextField.isSecureTextEntry = true
@@ -105,13 +107,14 @@ extension LoginViewController: UITextFieldDelegate {
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
 
-        let emailIsEmpty = emailTextField.text?.isEmpty ?? true
-        let passwordIsEmpty = passwordTextField.text?.isEmpty ?? true
+        let emailIsEmpty = emailTextField.text?.isEmpty ?? false
+        let passwordIsEmpty = passwordTextField.text?.isEmpty ?? false
         
         if emailIsEmpty || passwordIsEmpty {
             loginButton.isEnabled = false
         } else {
             loginButton.isEnabled = true
+            loginButton.backgroundColor = .purple
         }
 }
 }

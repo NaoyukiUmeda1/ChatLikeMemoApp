@@ -15,15 +15,12 @@ class ChatListViewController: UIViewController {
         }
     }
     
-    
+
     private let cellID = "cellId"
     //メモの題名の配列
     var memoListTheme : [String] = []
-    
     @IBOutlet weak var chatListTableView: UITableView!
-    
     @IBOutlet weak var addNewMemoListButton: UIBarButtonItem!
-    
     @IBAction func addNewMemoListButton(_ sender: Any) {
         var alertTextField: UITextField?
         
@@ -135,18 +132,14 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
 
 
 class ChatListTableViewCell: UITableViewCell {
-    
     @IBOutlet weak var memoTitleLabel: UILabel!
-    
     @IBOutlet weak var lastUpdatedTimeLabel: UILabel!
-    
+
     override func awakeFromNib() {
     }
-    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    
 }
 
 

@@ -19,12 +19,11 @@ struct  User {
         self.name = dic["name"] as! String
         self.createdAt = dic["createdAt"] as! Timestamp
         self.email = dic["email"] as! String
-}
+    }
 }
 
 
 class SignUpViewController: UIViewController {
-
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -49,8 +48,6 @@ class SignUpViewController: UIViewController {
             }
             guard let uid = Auth.auth().currentUser?.uid else { return }
             guard let name = self.usernameTextField.text else { return }
-            
-            
             let docData = ["email": email, "name": name, "createdAt": Timestamp()] as [String : Any]
             
             Firestore.firestore().collection("users").document(uid).setData(docData) { (err) in
@@ -59,7 +56,6 @@ class SignUpViewController: UIViewController {
                     return
                 }
                 print("firestoreへの保存に成功しました")
-                
                 Firestore.firestore().collection("users").document(uid).getDocument{(snapshot, err) in
                     if let err = err {
                         print("ユーザー情報の取得に失敗しました\(err)")
@@ -68,7 +64,6 @@ class SignUpViewController: UIViewController {
                     guard let data = snapshot?.data() else { return }
                     let user = User.init(dic: data)
                     print("ユーザー情報の取得ができました\(user.name)")
-
                     
                     let storyboard = UIStoryboard(name: "ChatList", bundle: nil)
                     let chatListViewController = storyboard.instantiateViewController(identifier: "ChatListViewController") as ChatListViewController
@@ -76,12 +71,10 @@ class SignUpViewController: UIViewController {
                     chatListViewController.modalPresentationStyle = .fullScreen
                     self.present(chatListViewController, animated: true, completion: nil)
                     }
-                
         }
         }
         
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,7 +82,6 @@ class SignUpViewController: UIViewController {
         registerButton.layer.cornerRadius = 15
         registerButton.layer.borderWidth = 1
         registerButton.layer.borderColor = UIColor.rgb(red: 240, green: 240, blue: 240).cgColor
-        
         registerButton.backgroundColor = .rgb(red: 198, green: 156, blue: 197)
         alreadyHaveAccountButton.addTarget(self, action: #selector(tappedAlreadyHaveAccountButton), for: .touchUpInside)
         
