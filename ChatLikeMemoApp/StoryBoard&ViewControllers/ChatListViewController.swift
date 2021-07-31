@@ -9,13 +9,18 @@ import UIKit
 
 class ChatListViewController: UIViewController {
     
+    var user: User? {
+        didSet {
+            print("user", user?.name)
+        }
+    }
+    
     
     private let cellID = "cellId"
     //メモの題名の配列
     var memoListTheme : [String] = []
     
     @IBOutlet weak var chatListTableView: UITableView!
-    
     
     @IBOutlet weak var addNewMemoListButton: UIBarButtonItem!
     
