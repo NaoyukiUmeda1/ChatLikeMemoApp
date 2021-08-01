@@ -11,14 +11,10 @@ protocol ChatInputAccesaryViewDelegate: class {
     func tappedSendButton(text: String)
 }
 
-
 class ChatInputAccesaryView: UIView {
-    
     
     @IBOutlet weak var chatTextView: UITextView!
     @IBOutlet weak var sendButton: UIButton!
-    
-    
     @IBAction func tappedSendButton(_ sender: Any) {
         
         guard let text = chatTextView.text else { return }
@@ -92,9 +88,6 @@ extension ChatInputAccesaryView: UITextViewDelegate {
         } else {
             sendButton.isEnabled = true
         }
-        
-        
-        
     }
     
 }

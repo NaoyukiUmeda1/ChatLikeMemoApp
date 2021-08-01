@@ -19,16 +19,24 @@ class ChatListViewController: UIViewController {
     //Firrstoreにデータを保存するところで使用
     private let db = Firestore.firestore()
     var ref: DocumentReference? = nil
-    //var memorooms = [MemoRoom]()
+    
     var documentIdArray:[String] = []
     public var selectedMemoList : String?
+    public var selectedMemoListDocId : String?
     
 
     private let cellID = "cellId"
+    
     //メモの題名の配列
     var memoListTheme : [String] = []
+    
+    //メモ題名のドキュメントIDの配列
+    var memoListThemeDocId : [String] = []
+    
+    
     @IBOutlet weak var chatListTableView: UITableView!
     @IBOutlet weak var addNewMemoListButton: UIBarButtonItem!
+    
     @IBAction func addNewMemoListButton(_ sender: Any) {
         var alertTextField: UITextField?
         
@@ -52,7 +60,6 @@ class ChatListViewController: UIViewController {
                 style: UIAlertAction.Style.default) { _ in
                 if let text = alertTextField?.text {
                     
-                    
                     //firebaseにデータを保存
                     if let user = Auth.auth().currentUser {
                         let createdTime = FieldValue.serverTimestamp()
@@ -61,7 +68,7 @@ class ChatListViewController: UIViewController {
                             
                             ["memoTitle": text,
                             "createdAt": createdTime,
-                            "updtedAt": createdTime,
+                            "updatedAt": createdTime,
                             "uid": Auth.auth().currentUser?.uid,
                             ],merge: true,completion: { err in
                                 if let err = err {
@@ -73,18 +80,19 @@ class ChatListViewController: UIViewController {
                                 Firestore.firestore().collection("memoTitle").order(by: "createdAt", descending: true).getDocuments(completion: { (querySnapshot,error) in
                                     if let querySnapshot = querySnapshot {
                                         var titleArray:[String] = []
+                                        var documentIdArray:[String] = []
                                         
                                         for doc in querySnapshot.documents {
                                             let data = doc.data()
                                             titleArray.append(data["memoTitle"] as! String)
+                                            documentIdArray.append(doc.documentID)
                                         }
                                         self.memoListTheme = titleArray
-                                        print(self.memoListTheme)
+                                        self.memoListThemeDocId = documentIdArray
                                         self.chatListTableView.reloadData()
                                     }
                                 })
                                 self.chatListTableView.reloadData()
-                                print(self.memoListTheme)
                             return
                             }
                             }
@@ -93,7 +101,6 @@ class ChatListViewController: UIViewController {
                 }
             )
         self.present(alert, animated: true, completion: nil)
-        
     }
     
     override func viewDidLoad() {
@@ -101,31 +108,27 @@ class ChatListViewController: UIViewController {
         
         chatListTableView.delegate = self
         chatListTableView.dataSource = self
-        navigationItem.title = "メモ一覧"
-        navigationController?.navigationBar.barTintColor = .purple
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         
-        let logoutBarButton = UIBarButtonItem(title: "ログアウト", style: .plain, target: self, action: #selector(tappedLogoutButton))
-        
-        var preferredStatusBarStyle: UIStatusBarStyle {
-                return .lightContent
+        //Firebaseに保存してあるメモタイトルを取得
+        Firestore.firestore().collection("memoTitle").order(by: "updtedAt", descending: true).getDocuments(completion: { (querySnapshot, error) in
+            if let querySnapshot = querySnapshot {
+                var titleArray:[String] = []
+                var documentIdArray:[String] = []
+                
+                for doc in querySnapshot.documents {
+                    let data = doc.data()
+//                    print("documentIDをprint\(doc.documentID)")
+                    titleArray.append(data["memoTitle"] as! String)
+                    //ドキュメントIDを配列に追加
+                    documentIdArray.append(doc.documentID)
+                }
+                self.memoListTheme = titleArray
+                self.memoListThemeDocId = documentIdArray
+                self.chatListTableView.reloadData()
             }
-        
-        navigationItem.leftBarButtonItem = logoutBarButton
-        navigationItem.leftBarButtonItem?.tintColor = .white
-        addNewMemoListButton.tintColor = .white
-        
-        
-        let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
-        let signUpViewController = storyboard.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
-        let nav = UINavigationController(rootViewController: signUpViewController)
-        nav.modalPresentationStyle = .fullScreen
-        self.present(nav, animated: true, completion: nil)
+        })
     }
-    
-    @objc private func tappedLogoutButton() {
-        //ログアウトのコード記述
-    }
+        
 }
 
 extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -148,9 +151,19 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("tapped table view")
         
+        self.selectedMemoList = memoListTheme[indexPath.row]
+        self.selectedMemoListDocId = memoListThemeDocId[indexPath.row]
+        
+        guard let unwrappedSelectedMemoList = selectedMemoList else { return }
+        guard let unwrappedSelectedMemoListDocId = selectedMemoListDocId else { return }
+        
         let storyboard = UIStoryboard.init(name: "ChatRoom", bundle: nil)
-        let chatRoomViewController = storyboard.instantiateViewController(withIdentifier: "ChatRoomViewController")
-        navigationController?.pushViewController(chatRoomViewController, animated: true)
+        let next = storyboard.instantiateViewController(withIdentifier: "ChatRoomViewController") as! ChatRoomViewController
+        navigationController?.pushViewController(next, animated: true)
+        
+        //memoRoomViewControllerに情報を渡す
+        next.selectedMemoTitle = unwrappedSelectedMemoList
+        next.selectedMemoTitleId = unwrappedSelectedMemoListDocId
     }
     
     //セルの編集許可
@@ -165,8 +178,6 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
             tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
         }
     }
-    
-    
 }
 
 

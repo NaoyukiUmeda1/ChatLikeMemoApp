@@ -35,8 +35,7 @@ class ChatRoomTableViewCell: UITableViewCell {
         
         messageTextView.layer.cornerRadius = 15
         backgroundColor = .clear
-        //backgroundColor = .rgb(red: 255, green: 189, blue: 128)
-        
+
         
     }
     
@@ -44,7 +43,7 @@ class ChatRoomTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    
+    //メモ枠を自動で調整
     private func estimateFrameForTextView(text: String) -> CGRect {
         let size = CGSize(width: 200, height: 1000)
         let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)

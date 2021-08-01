@@ -6,11 +6,15 @@
 //
 
 import UIKit
+import Firebase
 
 class ChatRoomViewController: UIViewController {
     
     private let cell = "cellId"
     private var messages = [String]()
+    
+    var selectedMemoTitle : String?
+    var selectedMemoTitleId : String?
     
     private lazy var chatInputAccesasryView: ChatInputAccesaryView = {
         let view = ChatInputAccesaryView()
@@ -43,6 +47,26 @@ class ChatRoomViewController: UIViewController {
         memoDeleteButton.tintColor = .white
         navigationItem.leftBarButtonItem?.tintColor = .white
         
+        //optionalでprintされる
+        //print("ドキュメントIDは\(String(describing: selectedMemoTitleId))")
+        
+        guard let unwrappedSelectedMemoTitleId = selectedMemoTitleId else { return }
+        //print("unwrappedSelectedMemoTitleIdは\(unwrappedSelectedMemoTitleId)")
+        
+        //firebaseに保存してあるmemoDetailのうち、特定のmemotitleRefだけをもってくる
+        Firestore.firestore().collection("memoDetail").whereField("memoTitleRef", isEqualTo: unwrappedSelectedMemoTitleId).getDocuments(completion: { (querySnapshot, error) in
+            if let querySnapshot = querySnapshot {
+                var memoDetailArray:[String] = []
+
+                for doc in querySnapshot.documents {
+                    let data = doc.data()
+                    memoDetailArray.append(data["memoDetail"] as! String)
+                }
+                self.messages = memoDetailArray
+                print(self.messages)
+                self.chatRoomTableView.reloadData()
+            }
+        })
     }
     
     //このプロパティがxcodeの中に用意されている
@@ -62,19 +86,46 @@ class ChatRoomViewController: UIViewController {
 extension ChatRoomViewController: ChatInputAccesaryViewDelegate {
     
     func tappedSendButton(text: String) {
-        self.messages.append(text)
-        //chatInputAccesasryView.chatTextView.text = ""をfuncにした
+
+        //Firebaseにデータを保存
+        let createdTime = FieldValue.serverTimestamp()
+        guard let unwrappedSelectedMemoTitleId = selectedMemoTitleId else { return }
+                //インプットする欄に入力した文字を消す
         chatInputAccesasryView.removeText()
-        //変数の中身をUDに追加（firebaseを使っていないので）
-        //forkeyのところは何でも可能
-        UserDefaults.standard.set(self.messages, forKey: "TodoList" )
-        
-        chatRoomTableView.reloadData()
-        print("ChatInputAccesaryViewDelegate text:", text)
-    }
-    
+        Firestore.firestore().collection("memoDetail").document().setData(
+                        ["memoDetail": text,
+                         "memoTitleRef": unwrappedSelectedMemoTitleId,
+                        "createdAt": createdTime,
+                        "updatedAt": createdTime,
+                        "uid": Auth.auth().currentUser?.uid,
+                        ],merge: true,completion: { err in
+                            if let err = err {
+                            print("Error")
+                        } else {
+                            
+                            Firestore.firestore().collection("memoDetail").whereField("memoTitleRef", isEqualTo: unwrappedSelectedMemoTitleId).getDocuments(completion: { (querySnapshot, error) in
+                                if let querySnapshot = querySnapshot {
+                                    var memoDetailArray:[String] = []
+                                    
+                                    for doc in querySnapshot.documents {
+                                        let data = doc.data()
+                                        memoDetailArray.append(data["memoDetail"] as! String)
+                                    }
+                                    self.messages = memoDetailArray
+                                    print(self.messages)
+                                    self.chatRoomTableView.reloadData()
+                                    print("配列にメモ題名追加成功")
+                                }
+                            })
+                            self.chatRoomTableView.reloadData()
+                            print(self.messages)
+                        return
+                        }
+                        }
+                        )}
     
 }
+
 
 
 
