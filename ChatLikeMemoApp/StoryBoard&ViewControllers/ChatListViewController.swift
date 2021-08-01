@@ -16,11 +16,11 @@ class ChatListViewController: UIViewController {
         }
     }
     
-    //Firrstoreにデータを保存するところで使用
-    private let db = Firestore.firestore()
+    let db = Firestore.firestore()
     var ref: DocumentReference? = nil
     
-    var documentIdArray:[String] = []
+    //var documentIdArray:[String] = []
+    
     public var selectedMemoList : String?
     public var selectedMemoListDocId : String?
     
@@ -63,21 +63,15 @@ class ChatListViewController: UIViewController {
                     //firebaseにデータを保存
                     if let user = Auth.auth().currentUser {
                         let createdTime = FieldValue.serverTimestamp()
-                        
                         self.db.collection("memoTitle").document().setData(
-                            
-                            ["memoTitle": text,
-                            "createdAt": createdTime,
-                            "updatedAt": createdTime,
-                            "uid": Auth.auth().currentUser?.uid,
-                            ],merge: true,completion: { err in
+                            ["memoTitle": text,"createdAt": createdTime,"updatedAt": createdTime,"uid": Auth.auth().currentUser?.uid,],merge: true,completion: { err in
                                 if let err = err {
                                 print("Error")
                             } else {
                                 print("配列にメモ題名追加成功")
                                 //ここからFirebaseからデータを取得して一覧表示する
                                 // FirestoreからTodoを取得する処理
-                                Firestore.firestore().collection("memoTitle").order(by: "createdAt", descending: true).getDocuments(completion: { (querySnapshot,error) in
+                                self.db.collection("memoTitle").order(by: "createdAt", descending: false).getDocuments(completion: { (querySnapshot,error) in
                                     if let querySnapshot = querySnapshot {
                                         var titleArray:[String] = []
                                         var documentIdArray:[String] = []
@@ -110,16 +104,14 @@ class ChatListViewController: UIViewController {
         chatListTableView.dataSource = self
         
         //Firebaseに保存してあるメモタイトルを取得
-        Firestore.firestore().collection("memoTitle").order(by: "updtedAt", descending: true).getDocuments(completion: { (querySnapshot, error) in
+        self.db.collection("memoTitle").order(by: "updatedAt", descending: true).getDocuments(completion: { (querySnapshot, error) in
             if let querySnapshot = querySnapshot {
                 var titleArray:[String] = []
                 var documentIdArray:[String] = []
                 
                 for doc in querySnapshot.documents {
                     let data = doc.data()
-//                    print("documentIDをprint\(doc.documentID)")
                     titleArray.append(data["memoTitle"] as! String)
-                    //ドキュメントIDを配列に追加
                     documentIdArray.append(doc.documentID)
                 }
                 self.memoListTheme = titleArray
@@ -128,7 +120,6 @@ class ChatListViewController: UIViewController {
             }
         })
     }
-        
 }
 
 extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -143,7 +134,6 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = chatListTableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as! ChatListTableViewCell
-        
         cell.memoTitleLabel.text = memoListTheme[indexPath.row]
         return cell
     }
@@ -171,6 +161,7 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
     {
         return true
     }
+    
     //スワイプしたセルを削除
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
