@@ -10,6 +10,8 @@ import Firebase
 
 class ChatRoomViewController: UIViewController {
     
+    let db = Firestore.firestore()
+    
     private let cell = "cellId"
     private var messages = [String]()
     
@@ -47,14 +49,9 @@ class ChatRoomViewController: UIViewController {
         memoDeleteButton.tintColor = .white
         navigationItem.leftBarButtonItem?.tintColor = .white
         
-        //optionalでprintされる
-        //print("ドキュメントIDは\(String(describing: selectedMemoTitleId))")
-        
         guard let unwrappedSelectedMemoTitleId = selectedMemoTitleId else { return }
-        //print("unwrappedSelectedMemoTitleIdは\(unwrappedSelectedMemoTitleId)")
-        
         //firebaseに保存してあるmemoDetailのうち、特定のmemotitleRefだけをもってくる
-        Firestore.firestore().collection("memoDetail").whereField("memoTitleRef", isEqualTo: unwrappedSelectedMemoTitleId).getDocuments(completion: { (querySnapshot, error) in
+        self.db.collection("memoDetail").whereField("memoTitleRef", isEqualTo: unwrappedSelectedMemoTitleId).getDocuments(completion: { (querySnapshot, error) in
             if let querySnapshot = querySnapshot {
                 var memoDetailArray:[String] = []
 
@@ -79,8 +76,6 @@ class ChatRoomViewController: UIViewController {
     override var canBecomeFirstResponder: Bool {
         return true
     }
-    
-    
 }
 
 extension ChatRoomViewController: ChatInputAccesaryViewDelegate {
@@ -92,7 +87,8 @@ extension ChatRoomViewController: ChatInputAccesaryViewDelegate {
         guard let unwrappedSelectedMemoTitleId = selectedMemoTitleId else { return }
                 //インプットする欄に入力した文字を消す
         chatInputAccesasryView.removeText()
-        Firestore.firestore().collection("memoDetail").document().setData(
+        
+        self.db.collection("memoDetail").document().setData(
                         ["memoDetail": text,
                          "memoTitleRef": unwrappedSelectedMemoTitleId,
                         "createdAt": createdTime,
@@ -112,20 +108,16 @@ extension ChatRoomViewController: ChatInputAccesaryViewDelegate {
                                         memoDetailArray.append(data["memoDetail"] as! String)
                                     }
                                     self.messages = memoDetailArray
-                                    print(self.messages)
                                     self.chatRoomTableView.reloadData()
-                                    print("配列にメモ題名追加成功")
                                 }
                             })
                             self.chatRoomTableView.reloadData()
-                            print(self.messages)
                         return
                         }
                         }
                         )}
     
 }
-
 
 
 

@@ -10,7 +10,6 @@ import Firebase
 
 class LoginViewController : UIViewController {
     
-    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
@@ -20,7 +19,6 @@ class LoginViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         dontHaveAccountButton.addTarget(self, action: #selector(tappedDontHaveAccoutButton), for: .touchUpInside)
-    
         loginButton.isEnabled = false
         loginButton.layer.cornerRadius = 15
         loginButton.layer.borderWidth = 1
@@ -29,8 +27,7 @@ class LoginViewController : UIViewController {
         emailTextField.delegate = self
         passwordTextField.delegate = self
         passwordTextField.isSecureTextEntry = true
-    
-    }
+    }    
     
     @IBAction func tappedLogInButton(_ sender: Any) {
         print("loginButton")
@@ -74,13 +71,12 @@ class LoginViewController : UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    
     //キーボードが出てきた時の処理が受け取れる
     //キーボード以外のところを触るとキーボードが下になくなってくれる
     @objc func showKeyboard(notification: Notification){
         let keyboardFrame = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as AnyObject).cgRectValue
         
-        guard let keyboardMinY = keyboardFrame?.minY else {return}
+        guard let keyboardMinY = keyboardFrame?.minY else { return }
         let resisterButonMaxY = loginButton.frame.maxY
         let distance = resisterButonMaxY - keyboardMinY + 20
         let transform = CGAffineTransform(translationX: 0, y: -distance)
@@ -92,7 +88,6 @@ class LoginViewController : UIViewController {
 
     @objc func hideKeyboard(){
         print("hideKeyboard is hide")
-        
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: [], animations: {
             self.view.transform = .identity
         })
@@ -116,5 +111,5 @@ extension LoginViewController: UITextFieldDelegate {
             loginButton.isEnabled = true
             loginButton.backgroundColor = .purple
         }
-}
+    }
 }

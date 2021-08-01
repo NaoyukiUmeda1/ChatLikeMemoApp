@@ -163,6 +163,7 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     //スワイプしたセルを削除
+    //ここの処理をfirebaseと接続させないといけない
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
             memoListTheme.remove(at: indexPath.row)

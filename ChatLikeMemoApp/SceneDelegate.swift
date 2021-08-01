@@ -17,9 +17,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = window
         window.makeKeyAndVisible()
         
-        let storyboard = UIStoryboard(name: "ChatList", bundle: nil)
-        let chatListViewController = storyboard.instantiateViewController(identifier: "ChatListViewController")
-        let nav = UINavigationController(rootViewController: chatListViewController)
+        let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
+        let firstShowViewController = storyboard.instantiateViewController(identifier: "SignUpViewController")
+        let nav = UINavigationController(rootViewController: firstShowViewController)
         window.rootViewController = nav
 
         guard let _ = (scene as? UIWindowScene) else { return }
