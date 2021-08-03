@@ -88,6 +88,32 @@ class SignUpViewController: UIViewController {
             }
             print(user.uid)
         }
+        
+        guard let anonymousUid = Auth.auth().currentUser?.uid else { return }
+        let docData = ["email": "anonymous@anonumousMail.com", "name": "匿名ユーザー", "createdAt": Timestamp()] as [String : Any]
+        
+        Firestore.firestore().collection("users").document(anonymousUid).setData(docData) { (err) in
+            if let err = err {
+                print("firestoreへの保存に失敗しました \(err)")
+                return
+            }
+            print("firestoreへの保存に成功しました")
+            Firestore.firestore().collection("users").document(anonymousUid).getDocument{(snapshot, err) in
+                if let err = err {
+                    print("ユーザー情報の取得に失敗しました\(err)")
+                    return
+                }
+                guard let data = snapshot?.data() else { return }
+                let user = User.init(dic: data)
+                print("ユーザー情報の取得ができました\(user.name)")
+                
+                let storyboard = UIStoryboard(name: "ChatList", bundle: nil)
+                let chatListViewController = storyboard.instantiateViewController(identifier: "ChatListViewController") as ChatListViewController
+                chatListViewController.user = user
+                chatListViewController.modalPresentationStyle = .fullScreen
+                self.present(chatListViewController, animated: true, completion: nil)
+                }
+    }
     }
     
     
