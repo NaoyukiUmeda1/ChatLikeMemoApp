@@ -37,6 +37,11 @@ class SignUpViewController: UIViewController {
         handleAuthToFirebase()
     }
     
+    
+    @IBAction func tappedNonResisterButton(_ sender: Any) {
+        nonResisterAuthToFirebase()
+    }
+    
     private func handleAuthToFirebase() {
         guard let email = emailTextField.text else { return }
         //デフォルトでは6桁以上のパスワードでないと登録できない
@@ -75,6 +80,17 @@ class SignUpViewController: UIViewController {
         }
         
     }
+    
+    private func nonResisterAuthToFirebase()  {
+        //FirebaseApp.configure()
+        Auth.auth().signInAnonymously { authResult, error in
+            guard let user = authResult?.user else { return
+            }
+            print(user.uid)
+        }
+    }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

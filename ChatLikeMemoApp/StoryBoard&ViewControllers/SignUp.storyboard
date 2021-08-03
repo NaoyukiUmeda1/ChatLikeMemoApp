@@ -105,6 +105,9 @@
                                 <rect key="frame" x="30" y="728.5" width="354" height="33"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <state key="normal" title="登録せずに使用する"/>
+                                <connections>
+                                    <action selector="tappedNonResisterButton:" destination="u0F-6G-Jy5" eventType="touchUpInside" id="4JG-8g-5aK"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Png-bM-Nzg"/>
