@@ -17,7 +17,7 @@ class ChatRoomTableViewCell: UITableViewCell {
             
             messageTextViewWithConstraint.constant = width
             messageTextView.text = text
-            messageTextView.backgroundColor = UIColor.rgb(red: 245, green: 212, blue: 181)
+            messageTextView.backgroundColor = UIColor.rgb(red: 90, green: 255, blue: 25)
         }
         
     }

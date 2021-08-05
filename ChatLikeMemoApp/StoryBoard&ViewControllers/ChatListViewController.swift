@@ -103,6 +103,9 @@ class ChatListViewController: UIViewController {
         chatListTableView.delegate = self
         chatListTableView.dataSource = self
         
+        self.navigationController?.navigationBar.barTintColor = UIColor.purple
+        self.navigationController?.navigationBar.tintColor = .white
+        
         //Firebaseに保存してあるメモタイトルを取得
         self.db.collection("memoTitle").order(by: "updatedAt", descending: true).getDocuments(completion: { (querySnapshot, error) in
             if let querySnapshot = querySnapshot {

@@ -74,8 +74,11 @@ class SignUpViewController: UIViewController {
                     let chatListViewController = storyboard.instantiateViewController(identifier: "ChatListViewController") as ChatListViewController
                     chatListViewController.user = user
                     
+                    let chatListViewControllerNavi = UINavigationController(rootViewController: chatListViewController)
+                    chatListViewControllerNavi.modalPresentationStyle = .fullScreen
+                    
                     chatListViewController.modalPresentationStyle = .fullScreen
-                    self.present(chatListViewController, animated: true, completion: nil)
+                    self.present(chatListViewControllerNavi, animated: true, completion: nil)
                     }
         }
         }
@@ -111,8 +114,12 @@ class SignUpViewController: UIViewController {
                 let storyboard = UIStoryboard(name: "ChatList", bundle: nil)
                 let chatListViewController = storyboard.instantiateViewController(identifier: "ChatListViewController") as ChatListViewController
                 chatListViewController.user = user
+                
+                let chatListViewControllerNavi = UINavigationController(rootViewController: chatListViewController)
+                chatListViewControllerNavi.modalPresentationStyle = .fullScreen
+                
                 chatListViewController.modalPresentationStyle = .fullScreen
-                self.present(chatListViewController, animated: true, completion: nil)
+                self.present(chatListViewControllerNavi, animated: true, completion: nil)
                 }
     }
     }
@@ -131,6 +138,10 @@ class SignUpViewController: UIViewController {
         emailTextField.delegate = self
         passwordTextField.delegate = self
         usernameTextField.delegate = self
+        
+
+        
+        
         
     }
     
