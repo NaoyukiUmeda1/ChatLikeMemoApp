@@ -44,8 +44,8 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メモタイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msT-hK-wKT">
-                                                    <rect key="frame" x="30" y="21" width="86" height="17"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <rect key="frame" x="30" y="16" width="122.5" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -57,7 +57,7 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="msT-hK-wKT" firstAttribute="top" secondItem="PCH-3V-dOM" secondAttribute="topMargin" constant="10" id="O97-0N-Qh5"/>
+                                                <constraint firstItem="msT-hK-wKT" firstAttribute="top" secondItem="PCH-3V-dOM" secondAttribute="topMargin" constant="5" id="O97-0N-Qh5"/>
                                                 <constraint firstAttribute="trailing" secondItem="uU8-Eq-Pge" secondAttribute="trailing" constant="20" id="cod-6h-ZIz"/>
                                                 <constraint firstItem="uU8-Eq-Pge" firstAttribute="top" secondItem="PCH-3V-dOM" secondAttribute="topMargin" constant="10" id="qx1-9h-Y7c"/>
                                                 <constraint firstItem="msT-hK-wKT" firstAttribute="leading" secondItem="PCH-3V-dOM" secondAttribute="leadingMargin" constant="10" id="yji-cJ-9eD"/>

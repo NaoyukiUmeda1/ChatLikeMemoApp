@@ -103,7 +103,9 @@ class ChatListViewController: UIViewController {
         chatListTableView.delegate = self
         chatListTableView.dataSource = self
         
+        self.navigationItem.title = "メモリスト"
         self.navigationController?.navigationBar.barTintColor = UIColor.purple
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         self.navigationController?.navigationBar.tintColor = .white
         
         //Firebaseに保存してあるメモタイトルを取得
