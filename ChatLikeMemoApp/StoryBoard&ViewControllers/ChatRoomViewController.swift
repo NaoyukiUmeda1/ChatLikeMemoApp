@@ -28,13 +28,6 @@ class ChatRoomViewController: UIViewController {
     
     @IBOutlet weak var chatRoomTableView: UITableView!
     
-    @IBOutlet weak var memoDeleteButton: UIBarButtonItem!
-
-    
-    //ゴミ箱ボタン（あとでやる）
-    @IBAction func memoDeleteButtonAction(_ sender: Any) {
-        chatRoomTableView.isEditing = true
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,8 +38,6 @@ class ChatRoomViewController: UIViewController {
         
         //navigationbarの文字を白くする
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-        
-        memoDeleteButton.tintColor = .white
         navigationItem.leftBarButtonItem?.tintColor = .white
         
         guard let unwrappedSelectedMemoTitleId = selectedMemoTitleId else { return }
