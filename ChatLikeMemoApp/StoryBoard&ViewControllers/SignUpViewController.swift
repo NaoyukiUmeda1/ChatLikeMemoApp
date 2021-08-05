@@ -73,6 +73,7 @@ class SignUpViewController: UIViewController {
                     let storyboard = UIStoryboard(name: "ChatList", bundle: nil)
                     let chatListViewController = storyboard.instantiateViewController(identifier: "ChatListViewController") as ChatListViewController
                     chatListViewController.user = user
+                    
                     chatListViewController.modalPresentationStyle = .fullScreen
                     self.present(chatListViewController, animated: true, completion: nil)
                     }

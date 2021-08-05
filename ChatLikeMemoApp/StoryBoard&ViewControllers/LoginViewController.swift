@@ -63,8 +63,9 @@ class LoginViewController : UIViewController {
     private func presentToChatListViewController() {
         let storyboard = UIStoryboard(name: "ChatList", bundle: nil)
         let chatlistViewController = storyboard.instantiateViewController(identifier: "ChatListViewController") as ChatListViewController
-        chatlistViewController.modalPresentationStyle = .fullScreen
-        self.present(chatlistViewController, animated: true, completion: nil)
+        let chatListViewControllerNavi = UINavigationController(rootViewController: chatlistViewController)
+        chatListViewControllerNavi.modalPresentationStyle = .fullScreen
+        self.present(chatListViewControllerNavi, animated: true, completion: nil)
     }
     
     @objc private func tappedDontHaveAccoutButton(){
