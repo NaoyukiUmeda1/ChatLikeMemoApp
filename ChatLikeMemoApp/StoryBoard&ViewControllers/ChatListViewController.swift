@@ -15,28 +15,23 @@ class ChatListViewController: UIViewController {
             print("user", user?.name)
         }
     }
-    
+        
     let db = Firestore.firestore()
     var ref: DocumentReference? = nil
     
-    //var documentIdArray:[String] = []
-    
     public var selectedMemoList : String?
     public var selectedMemoListDocId : String?
-    
-
     private let cellID = "cellId"
     
     //メモの題名の配列
     var memoListTheme : [String] = []
-    
     //メモ題名のドキュメントIDの配列
     var memoListThemeDocId : [String] = []
-    
+    //メモの題名のupdate時間の配列
+    var memoListThemeUpdateTime : [String] = []
     
     @IBOutlet weak var chatListTableView: UITableView!
     @IBOutlet weak var addNewMemoListButton: UIBarButtonItem!
-    
     @IBAction func addNewMemoListButton(_ sender: Any) {
         var alertTextField: UITextField?
         
@@ -109,18 +104,23 @@ class ChatListViewController: UIViewController {
         self.navigationController?.navigationBar.tintColor = .white
         
         //Firebaseに保存してあるメモタイトルを取得
-        self.db.collection("memoTitle").order(by: "updatedAt", descending: true).getDocuments(completion: { (querySnapshot, error) in
+        self.db.collection("memoTitle").order(by: "updatedAt", descending: false).getDocuments(completion: { (querySnapshot, error) in
             if let querySnapshot = querySnapshot {
                 var titleArray:[String] = []
                 var documentIdArray:[String] = []
+                var updatedTimeArray:[String] = []
                 
                 for doc in querySnapshot.documents {
                     let data = doc.data()
+                    let timestamp = data["updatedAt"] as! Timestamp
+                    
                     titleArray.append(data["memoTitle"] as! String)
                     documentIdArray.append(doc.documentID)
+                    updatedTimeArray.append(timestamp.dateValue().description)
                 }
                 self.memoListTheme = titleArray
                 self.memoListThemeDocId = documentIdArray
+                self.memoListThemeUpdateTime = updatedTimeArray
                 self.chatListTableView.reloadData()
             }
         })
@@ -129,6 +129,11 @@ class ChatListViewController: UIViewController {
 
 extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func dateFormatterForlastUpdatedTimeLabel() {
+        
+    }
+    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }
@@ -140,6 +145,7 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = chatListTableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as! ChatListTableViewCell
         cell.memoTitleLabel.text = memoListTheme[indexPath.row]
+        cell.lastUpdatedTimeLabel.text = memoListThemeUpdateTime.description
         return cell
     }
     
@@ -177,8 +183,8 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-
 class ChatListTableViewCell: UITableViewCell {
+        
     @IBOutlet weak var memoTitleLabel: UILabel!
     @IBOutlet weak var lastUpdatedTimeLabel: UILabel!
 

@@ -8,21 +8,6 @@
 import UIKit
 import Firebase
 
-
-struct  User {
-    let name : String
-    let createdAt : Timestamp
-    let email : String
-    var uid : String?
-    
-    init(dic: [String: Any]){
-        self.name = dic["name"] as! String
-        self.createdAt = dic["createdAt"] as! Timestamp
-        self.email = dic["email"] as! String
-    }
-}
-
-
 class SignUpViewController: UIViewController {
     
     @IBOutlet weak var emailTextField: UITextField!

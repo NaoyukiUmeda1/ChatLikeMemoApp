@@ -10,6 +10,7 @@
 		61892A44ED2AA68144F4608A /* Pods_ChatLikeMemoApp_ChatLikeMemoAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C9D79964ED889ADF6EB819 /* Pods_ChatLikeMemoApp_ChatLikeMemoAppUITests.framework */; };
 		7237232ECFED6C341B6E8ECB /* Pods_ChatLikeMemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E6A862DCAD06D283ADA0163 /* Pods_ChatLikeMemoApp.framework */; };
 		929EB56E26B0120700E1A442 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 929EB56D26B0120700E1A442 /* GoogleService-Info.plist */; };
+		92B9504826BFC36000F27AFA /* UserStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B9504726BFC36000F27AFA /* UserStruct.swift */; };
 		92BF8AA726AEE628005C0A4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF8AA626AEE628005C0A4C /* AppDelegate.swift */; };
 		92BF8AA926AEE628005C0A4C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF8AA826AEE628005C0A4C /* SceneDelegate.swift */; };
 		92BF8AB026AEE62C005C0A4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92BF8AAF26AEE62C005C0A4C /* Assets.xcassets */; };
@@ -56,6 +57,7 @@
 		718A8F6A73028C7DE70F0FD7 /* Pods-ChatLikeMemoAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatLikeMemoAppTests.debug.xcconfig"; path = "Target Support Files/Pods-ChatLikeMemoAppTests/Pods-ChatLikeMemoAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8FFE4C679609D3AF9B61341A /* Pods-ChatLikeMemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatLikeMemoApp.debug.xcconfig"; path = "Target Support Files/Pods-ChatLikeMemoApp/Pods-ChatLikeMemoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		929EB56D26B0120700E1A442 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		92B9504726BFC36000F27AFA /* UserStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStruct.swift; sourceTree = "<group>"; };
 		92BF8AA326AEE628005C0A4C /* ChatLikeMemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatLikeMemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92BF8AA626AEE628005C0A4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92BF8AA826AEE628005C0A4C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				92BF8B0F26AEEC6E005C0A4C /* ChatList.storyboard */,
 				92BF8B1426AEEC77005C0A4C /* ChatRoom.storyboard */,
 				92BF8AF526AEE84D005C0A4C /* SignUpViewController.swift */,
+				92B9504726BFC36000F27AFA /* UserStruct.swift */,
 				92BF8AFA26AEE879005C0A4C /* LoginViewController.swift */,
 				92BF8AEB26AEE80C005C0A4C /* ChatListViewController.swift */,
 				92BF8AF026AEE82C005C0A4C /* ChatRoomViewController.swift */,
@@ -480,6 +483,7 @@
 				92BF8AF626AEE84D005C0A4C /* SignUpViewController.swift in Sources */,
 				92BF8ADD26AEE774005C0A4C /* ChatRoomTableViewCell.swift in Sources */,
 				92BF8AFB26AEE879005C0A4C /* LoginViewController.swift in Sources */,
+				92B9504826BFC36000F27AFA /* UserStruct.swift in Sources */,
 				92BF8AA926AEE628005C0A4C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
