@@ -66,18 +66,23 @@ class ChatListViewController: UIViewController {
                                 print("配列にメモ題名追加成功")
                                 //ここからFirebaseからデータを取得して一覧表示する
                                 // FirestoreからTodoを取得する処理
-                                self.db.collection("memoTitle").order(by: "createdAt", descending: false).getDocuments(completion: { (querySnapshot,error) in
+                                self.db.collection("memoTitle").order(by: "updatedAt", descending: true).getDocuments(completion: { (querySnapshot,error) in
                                     if let querySnapshot = querySnapshot {
                                         var titleArray:[String] = []
                                         var documentIdArray:[String] = []
+                                        var updatedTimeArray:[String] = []
                                         
                                         for doc in querySnapshot.documents {
                                             let data = doc.data()
+                                            let timestamp = data["updatedAt"] as! Timestamp
                                             titleArray.append(data["memoTitle"] as! String)
                                             documentIdArray.append(doc.documentID)
+                                            updatedTimeArray.append(timestamp.dateValue().description)
+                                            //このあとdateFormatterForlastUpdatedTimelabelを使って時間の変換をしたい
                                         }
                                         self.memoListTheme = titleArray
                                         self.memoListThemeDocId = documentIdArray
+                                        self.memoListThemeUpdateTime = updatedTimeArray
                                         self.chatListTableView.reloadData()
                                     }
                                 })
@@ -103,8 +108,14 @@ class ChatListViewController: UIViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         self.navigationController?.navigationBar.tintColor = .white
         
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(
+                    title: "戻る",
+                    style: .plain,
+                    target: nil,
+                    action: nil
+                )
         //Firebaseに保存してあるメモタイトルを取得
-        self.db.collection("memoTitle").order(by: "updatedAt", descending: false).getDocuments(completion: { (querySnapshot, error) in
+        self.db.collection("memoTitle").order(by: "updatedAt", descending: true).getDocuments(completion: { (querySnapshot, error) in
             if let querySnapshot = querySnapshot {
                 var titleArray:[String] = []
                 var documentIdArray:[String] = []
@@ -116,6 +127,7 @@ class ChatListViewController: UIViewController {
                     titleArray.append(data["memoTitle"] as! String)
                     documentIdArray.append(doc.documentID)
                     updatedTimeArray.append(timestamp.dateValue().description)
+                    //このあとdateFormatterForlastUpdatedTimelabelを使って時間の変換をしたい
                 }
                 self.memoListTheme = titleArray
                 self.memoListThemeDocId = documentIdArray
