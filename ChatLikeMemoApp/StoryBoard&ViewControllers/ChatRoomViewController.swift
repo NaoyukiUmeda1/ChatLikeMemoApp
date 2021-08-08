@@ -39,6 +39,8 @@ class ChatRoomViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         navigationItem.leftBarButtonItem?.tintColor = .white
         
+        self.navigationItem.title = selectedMemoTitle
+        
         guard let unwrappedSelectedMemoTitleId = selectedMemoTitleId else { return }
         
         //firebaseに保存してあるmemoDetailのうち、特定のmemotitleRefだけをもってくる
