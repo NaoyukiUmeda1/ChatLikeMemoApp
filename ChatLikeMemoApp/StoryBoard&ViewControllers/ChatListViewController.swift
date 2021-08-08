@@ -113,7 +113,6 @@ class ChatListViewController: UIViewController {
                 for doc in querySnapshot.documents {
                     let data = doc.data()
                     let timestamp = data["updatedAt"] as! Timestamp
-                    
                     titleArray.append(data["memoTitle"] as! String)
                     documentIdArray.append(doc.documentID)
                     updatedTimeArray.append(timestamp.dateValue().description)
@@ -129,10 +128,13 @@ class ChatListViewController: UIViewController {
 
 extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func dateFormatterForlastUpdatedTimeLabel() {
-        
+    func dateFormatterForlastUpdatedTimeLabel(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .full
+        formatter.timeStyle = .short
+        formatter.locale = Locale(identifier: "ja_JP")
+        return formatter.string(from: date)
     }
-    
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
@@ -145,7 +147,7 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = chatListTableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as! ChatListTableViewCell
         cell.memoTitleLabel.text = memoListTheme[indexPath.row]
-        cell.lastUpdatedTimeLabel.text = memoListThemeUpdateTime.description
+        cell.lastUpdatedTimeLabel.text = memoListThemeUpdateTime[indexPath.row]
         return cell
     }
     
