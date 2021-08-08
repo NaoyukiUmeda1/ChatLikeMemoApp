@@ -36,13 +36,13 @@ class ChatRoomViewController: UIViewController {
         chatRoomTableView.dataSource = self
         chatRoomTableView.register(UINib(nibName: "ChatRoomTableViewCell", bundle: nil),forCellReuseIdentifier: "cellId")
         
-        //navigationbarの文字を白くする
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         navigationItem.leftBarButtonItem?.tintColor = .white
         
         guard let unwrappedSelectedMemoTitleId = selectedMemoTitleId else { return }
+        
         //firebaseに保存してあるmemoDetailのうち、特定のmemotitleRefだけをもってくる
-        self.db.collection("memoDetail").whereField("memoTitleRef", isEqualTo: unwrappedSelectedMemoTitleId).getDocuments(completion: { (querySnapshot, error) in
+        self.db.collection("memoDetail").whereField("memoTitleRef", isEqualTo: unwrappedSelectedMemoTitleId).order(by: "createdAt", descending: false).getDocuments(completion: { (querySnapshot, error) in
             if let querySnapshot = querySnapshot {
                 var memoDetailArray:[String] = []
 
@@ -90,7 +90,7 @@ extension ChatRoomViewController: ChatInputAccesaryViewDelegate {
                             print("Error")
                         } else {
                             
-                            Firestore.firestore().collection("memoDetail").whereField("memoTitleRef", isEqualTo: unwrappedSelectedMemoTitleId).getDocuments(completion: { (querySnapshot, error) in
+                            Firestore.firestore().collection("memoDetail").whereField("memoTitleRef", isEqualTo: unwrappedSelectedMemoTitleId).order(by: "createdAt", descending: false).getDocuments(completion: { (querySnapshot, error) in
                                 if let querySnapshot = querySnapshot {
                                     var memoDetailArray:[String] = []
                                     
