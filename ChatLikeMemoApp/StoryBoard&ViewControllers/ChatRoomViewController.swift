@@ -14,6 +14,7 @@ class ChatRoomViewController: UIViewController {
     
     private let cell = "cellId"
     private var messages = [String]()
+    private var messageCreatedTime = [String]()
     
     var selectedMemoTitle : String?
     var selectedMemoTitleId : String?
@@ -47,13 +48,19 @@ class ChatRoomViewController: UIViewController {
         self.db.collection("memoDetail").whereField("memoTitleRef", isEqualTo: unwrappedSelectedMemoTitleId).order(by: "createdAt", descending: false).getDocuments(completion: { (querySnapshot, error) in
             if let querySnapshot = querySnapshot {
                 var memoDetailArray:[String] = []
-
+                var memoDetailCreatedTimeArray:[String] = []
                 for doc in querySnapshot.documents {
                     let data = doc.data()
+                    let timestamp = data["createdAt"] as! Timestamp
+                    
                     memoDetailArray.append(data["memoDetail"] as! String)
+                    memoDetailCreatedTimeArray.append(timestamp.dateValue().description)
                 }
                 self.messages = memoDetailArray
+                self.messageCreatedTime = memoDetailCreatedTimeArray
+                //時刻の表示もされるようにデータをもってこれるようにした
                 print(self.messages)
+                print(self.messageCreatedTime)
                 self.chatRoomTableView.reloadData()
             }
         })
@@ -78,7 +85,7 @@ extension ChatRoomViewController: ChatInputAccesaryViewDelegate {
         //Firebaseにデータを保存
         let createdTime = FieldValue.serverTimestamp()
         guard let unwrappedSelectedMemoTitleId = selectedMemoTitleId else { return }
-                //インプットする欄に入力した文字を消す
+        //インプットする欄に入力した文字を消す
         chatInputAccesasryView.removeText()
         
         self.db.collection("memoDetail").document().setData(
@@ -95,12 +102,16 @@ extension ChatRoomViewController: ChatInputAccesaryViewDelegate {
                             Firestore.firestore().collection("memoDetail").whereField("memoTitleRef", isEqualTo: unwrappedSelectedMemoTitleId).order(by: "createdAt", descending: false).getDocuments(completion: { (querySnapshot, error) in
                                 if let querySnapshot = querySnapshot {
                                     var memoDetailArray:[String] = []
+                                    var memoDetailCreatedTimeArray:[String] = []
                                     
                                     for doc in querySnapshot.documents {
                                         let data = doc.data()
+                                        let timestamp = data["createdAt"] as! Timestamp
                                         memoDetailArray.append(data["memoDetail"] as! String)
+                                        memoDetailCreatedTimeArray.append(timestamp.dateValue().description)
                                     }
                                     self.messages = memoDetailArray
+                                    self.messageCreatedTime = memoDetailCreatedTimeArray
                                     self.chatRoomTableView.reloadData()
                                 }
                             })
@@ -109,7 +120,6 @@ extension ChatRoomViewController: ChatInputAccesaryViewDelegate {
                         }
                         }
                         )}
-    
 }
 
 
@@ -130,24 +140,15 @@ extension ChatRoomViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.messageTextView.text = messages[indexPath.row]
         cell.messageText = messages[indexPath.row]
+        //ここで書き方がおかしいから、時間がMemoRoomで表示されない？
+        cell.dateLabel.text = messageCreatedTime[indexPath.row]
         return cell
     }
     
-    //メッセージをdeleteするためのもの
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        messages.remove(at: indexPath.row)
-        tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
-    }
     
-    //deleteする表示の名前変更
-    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
-        return "削除"
-    }
     
-    //ゴミ箱ボタンを押した時に並び替え機能は無効にする
-    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        return false
-    }
+    
+    
 
     
 }

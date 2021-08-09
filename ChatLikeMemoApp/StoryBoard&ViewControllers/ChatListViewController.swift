@@ -109,7 +109,7 @@ class ChatListViewController: UIViewController {
         self.navigationController?.navigationBar.tintColor = .white
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(
-                    title: "戻る",
+                    title: "",
                     style: .plain,
                     target: nil,
                     action: nil

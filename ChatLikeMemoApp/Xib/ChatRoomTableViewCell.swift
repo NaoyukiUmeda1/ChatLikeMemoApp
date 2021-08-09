@@ -19,24 +19,18 @@ class ChatRoomTableViewCell: UITableViewCell {
             messageTextView.text = text
             messageTextView.backgroundColor = UIColor.rgb(red: 90, green: 255, blue: 25)
         }
-        
     }
     
     
     @IBOutlet weak var messageTextView: UITextView!
-    
     @IBOutlet weak var dateLabel: UILabel!
-    
     @IBOutlet weak var messageTextViewWithConstraint: NSLayoutConstraint!
 
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         messageTextView.layer.cornerRadius = 15
         backgroundColor = .clear
-
-        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -48,6 +42,16 @@ class ChatRoomTableViewCell: UITableViewCell {
         let size = CGSize(width: 200, height: 1000)
         let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
         return NSString(string: text).boundingRect(with: size, options: options, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)], context: nil)
+    }
+    
+    
+    //時刻のデザインを請け負う部分
+    func dateFormatterForlastUpdatedTimeLabel(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .full
+        formatter.timeStyle = .short
+        formatter.locale = Locale(identifier: "ja_JP")
+        return formatter.string(from: date)
     }
 }
 
