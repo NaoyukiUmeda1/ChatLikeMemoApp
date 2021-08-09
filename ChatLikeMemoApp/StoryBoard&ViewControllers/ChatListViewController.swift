@@ -36,15 +36,11 @@ class ChatListViewController: UIViewController {
     
     @IBAction func tappedSettingButton(_ sender: Any) {
         print("settingcontrollerへ画面遷移")
+        
+        let storyboard = UIStoryboard(name: "Setting", bundle: nil)
+        let toSettingViewController = storyboard.instantiateViewController(identifier: "SettingViewController") as SettingViewController
+        self.present(toSettingViewController, animated: true, completion: nil)
     }
-    
-//        let vc = self.storyboard?.instantiateViewController(withIdentifier: "Setting") as! SettingViewController
-//        self.present(vc, animated: true, completion: nil)
-//
-//        let storyboard = UIStoryboard(name: "Setting", bundle: nil)
-//        let toSettingViewController = storyboard.instantiateViewController(identifier: "SettingViewController") as SettingViewController
-//        self.present(toSettingViewController, animated: true, completion: nil)
-//
     
     
     @IBAction func addNewMemoListButton(_ sender: Any) {
