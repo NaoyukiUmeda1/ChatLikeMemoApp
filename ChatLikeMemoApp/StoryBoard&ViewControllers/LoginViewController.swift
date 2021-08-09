@@ -51,7 +51,6 @@ class LoginViewController : UIViewController {
                     print("ユーザー情報の取得に失敗しました\(err)")
                     return
                 }
-                
                 guard let data = snapshot?.data() else { return }
                 let user = User.init(dic: data)
                 print("ユーザー情報の取得ができました")

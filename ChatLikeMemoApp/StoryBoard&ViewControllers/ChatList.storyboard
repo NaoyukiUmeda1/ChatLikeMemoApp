@@ -86,24 +86,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Qli-jt-KGB">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="Nwv-M3-JPk">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="VGn-Uu-SxW">
-                                <rect key="frame" x="20" y="11" width="21" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="gearshape" catalog="system"/>
-                            </button>
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="gearshape" catalog="system" id="3LQ-jh-fNp">
                             <connections>
-                                <action selector="settingButton:" destination="DsE-gt-R0O" id="Jdm-SH-84Z"/>
+                                <action selector="tappedSettingButton:" destination="DsE-gt-R0O" id="Pon-rN-06h"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="R8P-lu-vKc">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="R8P-lu-vKc">
                             <connections>
                                 <action selector="addNewMemoListButton:" destination="DsE-gt-R0O" id="Wzt-WP-VfP"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="SettingButton" destination="Nwv-M3-JPk" id="ahc-gf-abK"/>
                         <outlet property="addNewMemoListButton" destination="R8P-lu-vKc" id="7dy-cq-dtG"/>
                         <outlet property="chatListTableView" destination="cZc-iX-JEg" id="z8s-El-OhZ"/>
                     </connections>

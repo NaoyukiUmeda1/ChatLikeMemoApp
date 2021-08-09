@@ -71,7 +71,6 @@ class SignUpViewController: UIViewController {
     }
     
     private func nonResisterAuthToFirebase()  {
-        //FirebaseApp.configure()
         Auth.auth().signInAnonymously { authResult, error in
             guard let user = authResult?.user else { return
             }
@@ -123,11 +122,6 @@ class SignUpViewController: UIViewController {
         emailTextField.delegate = self
         passwordTextField.delegate = self
         usernameTextField.delegate = self
-        
-
-        
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
