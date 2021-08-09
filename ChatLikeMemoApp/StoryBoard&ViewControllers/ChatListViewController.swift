@@ -39,7 +39,10 @@ class ChatListViewController: UIViewController {
         
         let storyboard = UIStoryboard(name: "Setting", bundle: nil)
         let toSettingViewController = storyboard.instantiateViewController(identifier: "SettingViewController") as SettingViewController
-        self.present(toSettingViewController, animated: true, completion: nil)
+        
+        let toSettingViewControllerNavi = UINavigationController(rootViewController: toSettingViewController)
+        toSettingViewControllerNavi.modalPresentationStyle = .automatic
+        self.present(toSettingViewControllerNavi, animated: true, completion: nil)
     }
     
     
