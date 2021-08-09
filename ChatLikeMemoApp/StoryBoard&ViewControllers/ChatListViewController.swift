@@ -122,7 +122,6 @@ class ChatListViewController: UIViewController {
         self.navigationController?.navigationBar.barTintColor = UIColor.purple
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         self.navigationController?.navigationBar.tintColor = .white
-        
         self.navigationItem.backBarButtonItem = UIBarButtonItem(
                     title: "",
                     style: .plain,

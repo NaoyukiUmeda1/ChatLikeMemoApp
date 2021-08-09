@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Setting View Controller-->
+        <!--Title-->
         <scene sceneID="z5u-sJ-oOG">
             <objects>
                 <tableViewController storyboardIdentifier="SettingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pbX-gk-JIh" customClass="SettingViewController" customModule="ChatLikeMemoApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -30,7 +30,13 @@
                             <outlet property="delegate" destination="pbX-gk-JIh" id="15H-x7-Eil"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Stj-NA-9Px"/>
+                    <navigationItem key="navigationItem" title="Title" id="XmX-5d-8zg">
+                        <barButtonItem key="leftBarButtonItem" title="戻る" id="q04-La-IUa">
+                            <connections>
+                                <action selector="tappedReturnToChatList:" destination="pbX-gk-JIh" id="DLa-FA-B7J"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HxD-mo-cny" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
