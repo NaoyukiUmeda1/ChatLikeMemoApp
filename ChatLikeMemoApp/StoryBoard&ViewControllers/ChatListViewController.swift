@@ -28,7 +28,7 @@ class ChatListViewController: UIViewController {
     //メモ題名のドキュメントIDの配列
     var memoListThemeDocId : [String] = []
     //メモの題名のupdate時間の配列
-    var memoListThemeUpdateTime : [String] = []
+    var memoListThemeUpdateTime : [Date] = []
     
     @IBOutlet weak var chatListTableView: UITableView!
     
@@ -84,14 +84,14 @@ class ChatListViewController: UIViewController {
                                     if let querySnapshot = querySnapshot {
                                         var titleArray:[String] = []
                                         var documentIdArray:[String] = []
-                                        var updatedTimeArray:[String] = []
+                                        var updatedTimeArray:[Date] = []
                                         
                                         for doc in querySnapshot.documents {
                                             let data = doc.data()
                                             let timestamp = data["updatedAt"] as! Timestamp
                                             titleArray.append(data["memoTitle"] as! String)
                                             documentIdArray.append(doc.documentID)
-                                            updatedTimeArray.append(timestamp.dateValue().description)
+                                            updatedTimeArray.append(timestamp.dateValue())
                                             //このあとdateFormatterForlastUpdatedTimelabelを使って時間の変換をしたい
                                         }
                                         self.memoListTheme = titleArray
@@ -133,14 +133,14 @@ class ChatListViewController: UIViewController {
             if let querySnapshot = querySnapshot {
                 var titleArray:[String] = []
                 var documentIdArray:[String] = []
-                var updatedTimeArray:[String] = []
+                var updatedTimeArray:[Date] = []
                 
                 for doc in querySnapshot.documents {
                     let data = doc.data()
                     let timestamp = data["updatedAt"] as! Timestamp
                     titleArray.append(data["memoTitle"] as! String)
                     documentIdArray.append(doc.documentID)
-                    updatedTimeArray.append(timestamp.dateValue().description)
+                    updatedTimeArray.append(timestamp.dateValue())
                     //このあとdateFormatterForlastUpdatedTimelabelを使って時間の変換をしたい
                 }
                 self.memoListTheme = titleArray
@@ -156,9 +156,9 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func dateFormatterForlastUpdatedTimeLabel(date: Date) -> String {
         let formatter = DateFormatter()
-        formatter.dateStyle = .full
-        formatter.timeStyle = .short
-        formatter.locale = Locale(identifier: "ja_JP")
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        formatter.locale = .current
         return formatter.string(from: date)
     }
 
@@ -173,7 +173,7 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = chatListTableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as! ChatListTableViewCell
         cell.memoTitleLabel.text = memoListTheme[indexPath.row]
-        cell.lastUpdatedTimeLabel.text = memoListThemeUpdateTime[indexPath.row]
+        cell.lastUpdatedTimeLabel.text = dateFormatterForlastUpdatedTimeLabel(date: memoListThemeUpdateTime[indexPath.row])
         return cell
     }
     

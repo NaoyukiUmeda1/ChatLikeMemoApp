@@ -12,6 +12,7 @@
 		929EB56E26B0120700E1A442 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 929EB56D26B0120700E1A442 /* GoogleService-Info.plist */; };
 		92AC2F9326C0FADE00F95E26 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92AC2F9226C0FADE00F95E26 /* Setting.storyboard */; };
 		92AC2F9826C0FC3800F95E26 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AC2F9726C0FC3800F95E26 /* SettingViewController.swift */; };
+		92B8A6F326C14DC900A5151E /* LongPressGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B8A6F226C14DC900A5151E /* LongPressGestureRecognizer.swift */; };
 		92B9504826BFC36000F27AFA /* UserStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B9504726BFC36000F27AFA /* UserStruct.swift */; };
 		92BF8AA726AEE628005C0A4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF8AA626AEE628005C0A4C /* AppDelegate.swift */; };
 		92BF8AA926AEE628005C0A4C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF8AA826AEE628005C0A4C /* SceneDelegate.swift */; };
@@ -61,6 +62,7 @@
 		929EB56D26B0120700E1A442 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		92AC2F9226C0FADE00F95E26 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		92AC2F9726C0FC3800F95E26 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		92B8A6F226C14DC900A5151E /* LongPressGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongPressGestureRecognizer.swift; sourceTree = "<group>"; };
 		92B9504726BFC36000F27AFA /* UserStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStruct.swift; sourceTree = "<group>"; };
 		92BF8AA326AEE628005C0A4C /* ChatLikeMemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatLikeMemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92BF8AA626AEE628005C0A4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 		92BF8B2C26AEEEAC005C0A4C /* StoryBoard&ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				92B8A6F226C14DC900A5151E /* LongPressGestureRecognizer.swift */,
 				92AC2F9226C0FADE00F95E26 /* Setting.storyboard */,
 				92AC2F9726C0FC3800F95E26 /* SettingViewController.swift */,
 				92BF8B1926AEEC7E005C0A4C /* SignUp.storyboard */,
@@ -488,6 +491,7 @@
 				92BF8AF126AEE82C005C0A4C /* ChatRoomViewController.swift in Sources */,
 				92BF8AE226AEE7AD005C0A4C /* ChatInputAccesaryView.swift in Sources */,
 				92BF8AEC26AEE80C005C0A4C /* ChatListViewController.swift in Sources */,
+				92B8A6F326C14DC900A5151E /* LongPressGestureRecognizer.swift in Sources */,
 				92BF8AF626AEE84D005C0A4C /* SignUpViewController.swift in Sources */,
 				92BF8ADD26AEE774005C0A4C /* ChatRoomTableViewCell.swift in Sources */,
 				92BF8AFB26AEE879005C0A4C /* LoginViewController.swift in Sources */,
