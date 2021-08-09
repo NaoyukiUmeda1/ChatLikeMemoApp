@@ -33,10 +33,13 @@
                     <navigationItem key="navigationItem" title="Title" id="XmX-5d-8zg">
                         <barButtonItem key="leftBarButtonItem" title="戻る" id="q04-La-IUa">
                             <connections>
-                                <action selector="tappedReturnToChatList:" destination="pbX-gk-JIh" id="DLa-FA-B7J"/>
+                                <action selector="tappedReturnToChatList:" destination="pbX-gk-JIh" id="gxC-0e-jhf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tappedReturnToChatList" destination="q04-La-IUa" id="JdX-Xa-8ck"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HxD-mo-cny" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

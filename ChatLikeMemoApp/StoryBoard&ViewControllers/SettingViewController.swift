@@ -10,12 +10,15 @@ import UIKit
 class SettingViewController: UITableViewController {
     
     
+    @IBOutlet weak var tappedReturnToChatList: UIBarButtonItem!
+    
+    
     @IBAction func tappedReturnToChatList(_ sender: Any) {
         print("ボタン：tappedReturnToChatList")
-        
-        
-        
+        self.dismiss(animated: true, completion: nil)
     }
+
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
