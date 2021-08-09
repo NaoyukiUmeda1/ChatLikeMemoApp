@@ -42,6 +42,8 @@ class ChatRoomViewController: UIViewController {
         
         self.navigationItem.title = selectedMemoTitle
         
+        self.chatRoomTableView.backgroundColor = .white
+        
         guard let unwrappedSelectedMemoTitleId = selectedMemoTitleId else { return }
         
         //firebaseに保存してあるmemoDetailのうち、特定のmemotitleRefだけをもってくる
@@ -140,8 +142,8 @@ extension ChatRoomViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.messageTextView.text = messages[indexPath.row]
         cell.messageText = messages[indexPath.row]
-        //ここで書き方がおかしいから、時間がMemoRoomで表示されない？
         cell.dateLabel.text = messageCreatedTime[indexPath.row]
+        cell.dateLabel.textColor = .black
         return cell
     }
     

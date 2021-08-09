@@ -30,8 +30,17 @@ class ChatListViewController: UIViewController {
     //メモの題名のupdate時間の配列
     var memoListThemeUpdateTime : [String] = []
     
+    
     @IBOutlet weak var chatListTableView: UITableView!
+    
+    @IBOutlet weak var SettingButton: UIBarButtonItem!
+    
     @IBOutlet weak var addNewMemoListButton: UIBarButtonItem!
+    
+    @IBAction func settingButton(_ sender: Any) {
+        
+    }
+    
     @IBAction func addNewMemoListButton(_ sender: Any) {
         var alertTextField: UITextField?
         
@@ -95,6 +104,7 @@ class ChatListViewController: UIViewController {
                 }
             )
         self.present(alert, animated: true, completion: nil)
+        
     }
     
     override func viewDidLoad() {
