@@ -14,7 +14,7 @@ class ChatRoomViewController: UIViewController {
     
     private let cell = "cellId"
     private var messages = [String]()
-    private var messageCreatedTime = [String]()
+    private var messageCreatedTime  = [Date]()
     
     var selectedMemoTitle : String?
     var selectedMemoTitleId : String?
@@ -50,13 +50,13 @@ class ChatRoomViewController: UIViewController {
         self.db.collection("memoDetail").whereField("memoTitleRef", isEqualTo: unwrappedSelectedMemoTitleId).order(by: "createdAt", descending: false).getDocuments(completion: { (querySnapshot, error) in
             if let querySnapshot = querySnapshot {
                 var memoDetailArray:[String] = []
-                var memoDetailCreatedTimeArray:[String] = []
+                var memoDetailCreatedTimeArray:[Date] = []
                 for doc in querySnapshot.documents {
                     let data = doc.data()
                     let timestamp = data["createdAt"] as! Timestamp
                     
                     memoDetailArray.append(data["memoDetail"] as! String)
-                    memoDetailCreatedTimeArray.append(timestamp.dateValue().description)
+                    memoDetailCreatedTimeArray.append(timestamp.dateValue())
                 }
                 self.messages = memoDetailArray
                 self.messageCreatedTime = memoDetailCreatedTimeArray
@@ -104,13 +104,13 @@ extension ChatRoomViewController: ChatInputAccesaryViewDelegate {
                             Firestore.firestore().collection("memoDetail").whereField("memoTitleRef", isEqualTo: unwrappedSelectedMemoTitleId).order(by: "createdAt", descending: false).getDocuments(completion: { (querySnapshot, error) in
                                 if let querySnapshot = querySnapshot {
                                     var memoDetailArray:[String] = []
-                                    var memoDetailCreatedTimeArray:[String] = []
+                                    var memoDetailCreatedTimeArray:[Date] = []
                                     
                                     for doc in querySnapshot.documents {
                                         let data = doc.data()
                                         let timestamp = data["createdAt"] as! Timestamp
                                         memoDetailArray.append(data["memoDetail"] as! String)
-                                        memoDetailCreatedTimeArray.append(timestamp.dateValue().description)
+                                        memoDetailCreatedTimeArray.append(timestamp.dateValue())
                                     }
                                     self.messages = memoDetailArray
                                     self.messageCreatedTime = memoDetailCreatedTimeArray
@@ -142,9 +142,18 @@ extension ChatRoomViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.messageTextView.text = messages[indexPath.row]
         cell.messageText = messages[indexPath.row]
-        cell.dateLabel.text = messageCreatedTime[indexPath.row]
+        cell.dateLabel.text = dateFormatterForlastUpdatedTimeLabel(date: messageCreatedTime[indexPath.row])
         cell.dateLabel.textColor = .black
         return cell
+    }
+    
+    //時刻のデザインを請け負う部分
+    func dateFormatterForlastUpdatedTimeLabel(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        formatter.locale = .current
+        return formatter.string(from: date)
     }
     
     

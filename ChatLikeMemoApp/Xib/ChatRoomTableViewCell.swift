@@ -45,14 +45,14 @@ class ChatRoomTableViewCell: UITableViewCell {
     }
     
     
-    //時刻のデザインを請け負う部分
-    func dateFormatterForlastUpdatedTimeLabel(date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .full
-        formatter.timeStyle = .short
-        formatter.locale = Locale(identifier: "ja_JP")
-        return formatter.string(from: date)
-    }
+//    //時刻のデザインを請け負う部分
+//    func dateFormatterForlastUpdatedTimeLabel(date: Date) -> String {
+//        let formatter = DateFormatter()
+//        formatter.dateStyle = .medium
+//        formatter.timeStyle = .none
+//        formatter.locale = .current
+//        return formatter.string(from: date)
+//    }
 }
 
 

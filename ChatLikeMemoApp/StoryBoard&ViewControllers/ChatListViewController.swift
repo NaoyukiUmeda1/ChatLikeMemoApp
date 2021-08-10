@@ -141,7 +141,6 @@ class ChatListViewController: UIViewController {
                     titleArray.append(data["memoTitle"] as! String)
                     documentIdArray.append(doc.documentID)
                     updatedTimeArray.append(timestamp.dateValue())
-                    //このあとdateFormatterForlastUpdatedTimelabelを使って時間の変換をしたい
                 }
                 self.memoListTheme = titleArray
                 self.memoListThemeDocId = documentIdArray
