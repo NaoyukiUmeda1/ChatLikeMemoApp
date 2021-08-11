@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SettingViewController: UIViewController {
     
@@ -54,6 +55,19 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         print("tapped table view")
         if indexPath.row == 0 {
             print("ログアウト")
+            let firebaseAuth = Auth.auth()
+           do {
+            try firebaseAuth.signOut()
+            print("ログアウト成功&サインアップ画面へ移動")
+            
+            
+            
+            
+            
+           } catch let signOutError as NSError {
+             print("ログアウトエラー内容", signOutError)
+           }
+             
         }
         else if indexPath.row == 1 {
             print("お問い合わせフォームへ移動")
