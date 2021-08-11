@@ -29,8 +29,6 @@ class ChatListViewController: UIViewController {
     var memoListThemeDocId : [String] = []
     //メモの題名のupdate時間の配列
     var memoListThemeUpdateTime : [Date] = []
-    // UILongPressGestureRecognizer宣言(セルが長押しされた時)
-    var longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "cellLongPressed:")
     
     @IBOutlet weak var chatListTableView: UITableView!
     
@@ -93,7 +91,6 @@ class ChatListViewController: UIViewController {
                                             titleArray.append(data["memoTitle"] as! String)
                                             documentIdArray.append(doc.documentID)
                                             updatedTimeArray.append(timestamp.dateValue())
-                                            //このあとdateFormatterForlastUpdatedTimelabelを使って時間の変換をしたい
                                         }
                                         self.memoListTheme = titleArray
                                         self.memoListThemeDocId = documentIdArray
@@ -118,10 +115,13 @@ class ChatListViewController: UIViewController {
         
         chatListTableView.delegate = self
         chatListTableView.dataSource = self
-        longPressRecognizer.delegate = self
+        //longPressRecognizer.delegate = self
         
-        //セルを長押しした時に必要
-        chatListTableView.addGestureRecognizer(longPressRecognizer)
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
+        longPressGesture.minimumPressDuration = 0.5
+        longPressGesture.allowableMovement = 10
+        chatListTableView.addGestureRecognizer(longPressGesture)
+        
         
         self.navigationItem.title = "メモリスト"
         self.navigationController?.navigationBar.barTintColor = UIColor.purple
@@ -158,6 +158,14 @@ class ChatListViewController: UIViewController {
 }
 
 extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    @objc func handleLongPress(longPressGesture: UILongPressGestureRecognizer) {
+        guard longPressGesture.state == .ended else { return }
+        let point = longPressGesture.location(in: chatListTableView)
+        guard let indexPath = chatListTableView.indexPathForRow(at: point) else { return }
+        print("ロングタップされた\(indexPath.row)")
+        chatListTableView.deselectRow(at: indexPath, animated: true)
+    }
     
     func dateFormatterForlastUpdatedTimeLabel(date: Date) -> String {
         let formatter = DateFormatter()
@@ -209,44 +217,44 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension ChatListViewController: UIGestureRecognizerDelegate {
-    //セルが長押しされた時の処理（タイトル名の変更）
-    func cellLongPressed(recognizer: UILongPressGestureRecognizer) {
-        // 押された位置でcellのPathを取得
-        let point = recognizer.location(in: chatListTableView)
-        let indexPath = chatListTableView.indexPathsForSelectedRows
-            if indexPath == nil {
-                
-            } else if recognizer.state == UIGestureRecognizer.State.began  {
-            // 長押しされた場合の処理
-            print("長押しされたcell")
-                //これが認識しない
-                //var selectedTitle = self.selectedMemoList
-                var alertTextField: UITextField?
-                let alert = UIAlertController(
-                    title: "メモの題名変更",
-                    message: "",
-                    preferredStyle: UIAlertController.Style.alert)
-                
-                alert.addTextField(
-                    configurationHandler: {(textField: UITextField!) in
-                        alertTextField = textField
-                    })
-                alert.addAction(
-                    UIAlertAction(
-                        title: "戻る",
-                        style: UIAlertAction.Style.cancel,
-                        handler: nil))
-                alert.addAction(
-                    UIAlertAction(
-                        title: "変更確定",
-                        style: UIAlertAction.Style.default) { _ in
-                        if let text = alertTextField?.text {} else {
-                            return
-                        }})
-            }
-    }
-}
+//extension ChatListViewController: UIGestureRecognizerDelegate {
+//    //セルが長押しされた時の処理（タイトル名の変更）
+//    func cellLongPressed(recognizer: UILongPressGestureRecognizer) {
+//        // 押された位置でcellのPathを取得
+//        let point = recognizer.location(in: chatListTableView)
+//        let indexPath = chatListTableView.indexPathsForSelectedRows
+//            if indexPath == nil {
+//
+//            } else if recognizer.state == UIGestureRecognizer.State.began  {
+//            // 長押しされた場合の処理
+//            print("長押しされたcell")
+//                //これが認識しない
+//                //var selectedTitle = self.selectedMemoList
+//                var alertTextField: UITextField?
+//                let alert = UIAlertController(
+//                    title: "メモの題名変更",
+//                    message: "",
+//                    preferredStyle: UIAlertController.Style.alert)
+//
+//                alert.addTextField(
+//                    configurationHandler: {(textField: UITextField!) in
+//                        alertTextField = textField
+//                    })
+//                alert.addAction(
+//                    UIAlertAction(
+//                        title: "戻る",
+//                        style: UIAlertAction.Style.cancel,
+//                        handler: nil))
+//                alert.addAction(
+//                    UIAlertAction(
+//                        title: "変更確定",
+//                        style: UIAlertAction.Style.default) { _ in
+//                        if let text = alertTextField?.text {} else {
+//                            return
+//                        }})
+//            }
+//    }
+//}
 
 class ChatListTableViewCell: UITableViewCell {
         
@@ -257,6 +265,14 @@ class ChatListTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+    
+    @objc func longPress() {
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(ChatListTableViewCell.longPress))
+        longPressGesture.minimumPressDuration = 1
+        longPressGesture.allowableMovement = 30
+        memoTitleLabel.addGestureRecognizer(longPressGesture)
+        print("ロングプレスされた")
+        }
 }
 
 
