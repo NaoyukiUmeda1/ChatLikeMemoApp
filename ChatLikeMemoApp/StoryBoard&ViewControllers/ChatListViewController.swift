@@ -50,13 +50,14 @@ class ChatListViewController: UIViewController {
         
         let alert = UIAlertController(
             title: "新しいメモリストを作成",
-            message: "",
+            message: "12文字まで入力可能",
             preferredStyle: UIAlertController.Style.alert)
         
-        alert.addTextField(
-            configurationHandler: {(textField: UITextField!) in
-                alertTextField = textField
-            })
+        alert.addTextField(configurationHandler: {(textField: UITextField!) in alertTextField = textField })
+        alert.textFields?.first?.placeholder = "入力してください"
+        //文字数制限
+        alert.textFields?.first?.addTarget(self, action: #selector(textFieldDidChange), for: .allEditingEvents)
+        
         alert.addAction(
             UIAlertAction(
                 title: "Cancel",
@@ -159,6 +160,11 @@ class ChatListViewController: UIViewController {
 
 extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
     
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        if let text = textField.text, text.count > 12 {
+            textField.text = String(text.prefix(12))
+        }}
+        
     @objc func handleLongPress(longPressGesture: UILongPressGestureRecognizer) {
         guard longPressGesture.state == .ended else { return }
         let point = longPressGesture.location(in: chatListTableView)
