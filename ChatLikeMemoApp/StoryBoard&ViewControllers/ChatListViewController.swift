@@ -176,12 +176,18 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
         let alert = UIAlertController(
             title: "メモの題名変更",message: "",preferredStyle: UIAlertController.Style.alert)
         alert.addTextField(
-            configurationHandler: {(textField: UITextField!) in
-                alertTextField = textField })
+            configurationHandler: {( textField: UITextField!) in
+                //(1)memoListThemeのメモ題名をもってくる
+                //(2)書き換えの処理
+                alertTextField = textField
+        })
         alert.addAction(UIAlertAction( title: "戻る",style: UIAlertAction.Style.cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "変更確定",style: UIAlertAction.Style.default) { _ in
-                            if let text = alertTextField?.text {} else {return}})
+                            //(3)firebaseに保存をする処理を書く
+                            if let text = alertTextField?.text {} else { return }})
+        self.present(alert, animated: true, completion: nil)
     }
+    
     
     func dateFormatterForlastUpdatedTimeLabel(date: Date) -> String {
         let formatter = DateFormatter()
@@ -224,10 +230,19 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool { return true }
     
     //スワイプしたセルを削除
-    //ここの処理をfirebaseと接続させないといけない
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
+            //firebaseの中のmemoTitleの中のドキュメントを削除する
+            db.collection("memoTitle").document(memoListThemeDocId[indexPath.row]).delete() { err in
+                if let err = err {
+                    print("ドキュメント削除エラー\(err)")
+                } else {
+                    print("ドキュメント削除成功")
+                }
+            }
             memoListTheme.remove(at: indexPath.row)
+            memoListThemeDocId.remove(at: indexPath.row)
+            memoListThemeUpdateTime.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
         }
     }
