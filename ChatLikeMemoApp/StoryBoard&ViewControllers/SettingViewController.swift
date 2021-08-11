@@ -52,8 +52,17 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("tapped table view")
+        if indexPath.row == 1 {
+            print("ログアウト")
+        }
+        else if indexPath.row == 2 {
+            print("お問い合わせフォームへ移動")
+        }
+        else if indexPath.row == 3 {
+            print("アプリのバージョン")
+        }
+        
     }
-    
 }
 
 class SettingTableViewCell: UITableViewCell {
