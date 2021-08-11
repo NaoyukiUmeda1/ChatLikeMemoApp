@@ -243,5 +243,3 @@ class ChatListTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 }
-
-
