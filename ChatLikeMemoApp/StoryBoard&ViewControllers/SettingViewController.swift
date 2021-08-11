@@ -60,8 +60,12 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             try firebaseAuth.signOut()
             print("ログアウト成功&サインアップ画面へ移動")
             
+            let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
+            let toSignUpViewController = storyboard.instantiateViewController(identifier: "SignUpViewController") as SignUpViewController
             
-            
+            //let toSettingViewControllerNavi = UINavigationController(rootViewController: toSettingViewController)
+            toSignUpViewController.modalPresentationStyle = .fullScreen
+            self.present(toSignUpViewController, animated: true, completion: nil)
             
             
            } catch let signOutError as NSError {
