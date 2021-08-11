@@ -163,8 +163,19 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
         guard longPressGesture.state == .ended else { return }
         let point = longPressGesture.location(in: chatListTableView)
         guard let indexPath = chatListTableView.indexPathForRow(at: point) else { return }
-        print("ロングタップされた\(indexPath.row)")
         chatListTableView.deselectRow(at: indexPath, animated: true)
+        print("ロングタップされた\(indexPath.row)")
+        
+        
+        var alertTextField: UITextField?
+        let alert = UIAlertController(
+            title: "メモの題名変更",message: "",preferredStyle: UIAlertController.Style.alert)
+        alert.addTextField(
+            configurationHandler: {(textField: UITextField!) in
+                alertTextField = textField })
+        alert.addAction(UIAlertAction( title: "戻る",style: UIAlertAction.Style.cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "変更確定",style: UIAlertAction.Style.default) { _ in
+                            if let text = alertTextField?.text {} else {return}})
     }
     
     func dateFormatterForlastUpdatedTimeLabel(date: Date) -> String {
