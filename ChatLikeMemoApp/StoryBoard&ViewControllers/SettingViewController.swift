@@ -52,13 +52,19 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("tapped table view")
-        if indexPath.row == 1 {
+        if indexPath.row == 0 {
             print("ログアウト")
         }
-        else if indexPath.row == 2 {
+        else if indexPath.row == 1 {
             print("お問い合わせフォームへ移動")
+            //タップした時の選択色を消す
+            tableView.deselectRow(at: indexPath as IndexPath, animated: true)
+            let url = NSURL(string: "https://tayori.com/form/635db211196f258d238d4f05e177c3e11f78a337")
+            if UIApplication.shared.canOpenURL(url! as URL) {
+                UIApplication.shared.open(url! as URL, options: [:], completionHandler: nil)
+            }
         }
-        else if indexPath.row == 3 {
+        else if indexPath.row == 2 {
             print("アプリのバージョン")
         }
         
