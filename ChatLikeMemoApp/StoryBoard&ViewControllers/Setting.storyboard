@@ -31,15 +31,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="7bS-u0-jVQ">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="7Ly-mf-OJA">
+                        <barButtonItem key="leftBarButtonItem" title="戻る" id="7Ly-mf-OJA">
                             <connections>
-                                <action selector="tappedReturnToChatList:" destination="8lw-Ci-Y8A" id="fcO-Rm-TDm"/>
+                                <action selector="tappedReturnToChatList:" destination="tkv-EI-isV" id="eil-Do-Ked"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B9L-fb-rVI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="8lw-Ci-Y8A" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1112" y="46"/>
         </scene>

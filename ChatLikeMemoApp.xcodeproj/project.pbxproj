@@ -203,18 +203,18 @@
 		92BF8B2C26AEEEAC005C0A4C /* StoryBoard&ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				92B8A6F226C14DC900A5151E /* LongPressGestureRecognizer.swift */,
 				92AC2F9226C0FADE00F95E26 /* Setting.storyboard */,
 				92BF8B1926AEEC7E005C0A4C /* SignUp.storyboard */,
 				92BF8B1E26AEEC84005C0A4C /* LogIn.storyboard */,
 				92BF8B0F26AEEC6E005C0A4C /* ChatList.storyboard */,
 				92BF8B1426AEEC77005C0A4C /* ChatRoom.storyboard */,
+				92AC2F9726C0FC3800F95E26 /* SettingViewController.swift */,
 				92BF8AF526AEE84D005C0A4C /* SignUpViewController.swift */,
 				92B9504726BFC36000F27AFA /* UserStruct.swift */,
 				92BF8AFA26AEE879005C0A4C /* LoginViewController.swift */,
-				92AC2F9726C0FC3800F95E26 /* SettingViewController.swift */,
 				92BF8AEB26AEE80C005C0A4C /* ChatListViewController.swift */,
 				92BF8AF026AEE82C005C0A4C /* ChatRoomViewController.swift */,
+				92B8A6F226C14DC900A5151E /* LongPressGestureRecognizer.swift */,
 			);
 			path = "StoryBoard&ViewControllers";
 			sourceTree = "<group>";
