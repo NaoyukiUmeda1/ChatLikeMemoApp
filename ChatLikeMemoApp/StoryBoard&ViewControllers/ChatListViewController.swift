@@ -29,6 +29,8 @@ class ChatListViewController: UIViewController {
     var memoListThemeDocId : [String] = []
     //メモの題名のupdate時間の配列
     var memoListThemeUpdateTime : [Date] = []
+    // UILongPressGestureRecognizer宣言(セルが長押しされた時)
+    var longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "cellLongPressed:")
     
     @IBOutlet weak var chatListTableView: UITableView!
     
@@ -44,7 +46,6 @@ class ChatListViewController: UIViewController {
         toSettingViewControllerNavi.modalPresentationStyle = .automatic
         self.present(toSettingViewControllerNavi, animated: true, completion: nil)
     }
-    
     
     @IBAction func addNewMemoListButton(_ sender: Any) {
         var alertTextField: UITextField?
@@ -117,6 +118,10 @@ class ChatListViewController: UIViewController {
         
         chatListTableView.delegate = self
         chatListTableView.dataSource = self
+        longPressRecognizer.delegate = self
+        
+        //セルを長押しした時に必要
+        chatListTableView.addGestureRecognizer(longPressRecognizer)
         
         self.navigationItem.title = "メモリスト"
         self.navigationController?.navigationBar.barTintColor = UIColor.purple
@@ -128,6 +133,7 @@ class ChatListViewController: UIViewController {
                     target: nil,
                     action: nil
                 )
+        
         //Firebaseに保存してあるメモタイトルを取得
         self.db.collection("memoTitle").order(by: "updatedAt", descending: true).getDocuments(completion: { (querySnapshot, error) in
             if let querySnapshot = querySnapshot {
@@ -178,27 +184,20 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("tapped table view")
-        
         self.selectedMemoList = memoListTheme[indexPath.row]
         self.selectedMemoListDocId = memoListThemeDocId[indexPath.row]
-        
         guard let unwrappedSelectedMemoList = selectedMemoList else { return }
         guard let unwrappedSelectedMemoListDocId = selectedMemoListDocId else { return }
-        
         let storyboard = UIStoryboard.init(name: "ChatRoom", bundle: nil)
         let next = storyboard.instantiateViewController(withIdentifier: "ChatRoomViewController") as! ChatRoomViewController
         navigationController?.pushViewController(next, animated: true)
-        
         //memoRoomViewControllerに情報を渡す
         next.selectedMemoTitle = unwrappedSelectedMemoList
         next.selectedMemoTitleId = unwrappedSelectedMemoListDocId
     }
     
     //セルの編集許可
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
-    {
-        return true
-    }
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool { return true }
     
     //スワイプしたセルを削除
     //ここの処理をfirebaseと接続させないといけない
@@ -210,13 +209,51 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+extension ChatListViewController: UIGestureRecognizerDelegate {
+    //セルが長押しされた時の処理（タイトル名の変更）
+    func cellLongPressed(recognizer: UILongPressGestureRecognizer) {
+        // 押された位置でcellのPathを取得
+        let point = recognizer.location(in: chatListTableView)
+        let indexPath = chatListTableView.indexPathsForSelectedRows
+            if indexPath == nil {
+                
+            } else if recognizer.state == UIGestureRecognizer.State.began  {
+            // 長押しされた場合の処理
+            print("長押しされたcell")
+                //これが認識しない
+                //var selectedTitle = self.selectedMemoList
+                var alertTextField: UITextField?
+                let alert = UIAlertController(
+                    title: "メモの題名変更",
+                    message: "",
+                    preferredStyle: UIAlertController.Style.alert)
+                
+                alert.addTextField(
+                    configurationHandler: {(textField: UITextField!) in
+                        alertTextField = textField
+                    })
+                alert.addAction(
+                    UIAlertAction(
+                        title: "戻る",
+                        style: UIAlertAction.Style.cancel,
+                        handler: nil))
+                alert.addAction(
+                    UIAlertAction(
+                        title: "変更確定",
+                        style: UIAlertAction.Style.default) { _ in
+                        if let text = alertTextField?.text {} else {
+                            return
+                        }})
+            }
+    }
+}
+
 class ChatListTableViewCell: UITableViewCell {
         
     @IBOutlet weak var memoTitleLabel: UILabel!
     @IBOutlet weak var lastUpdatedTimeLabel: UILabel!
 
-    override func awakeFromNib() {
-    }
+    override func awakeFromNib() { }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }

@@ -43,16 +43,6 @@ class ChatRoomTableViewCell: UITableViewCell {
         let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
         return NSString(string: text).boundingRect(with: size, options: options, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)], context: nil)
     }
-    
-    
-//    //時刻のデザインを請け負う部分
-//    func dateFormatterForlastUpdatedTimeLabel(date: Date) -> String {
-//        let formatter = DateFormatter()
-//        formatter.dateStyle = .medium
-//        formatter.timeStyle = .none
-//        formatter.locale = .current
-//        return formatter.string(from: date)
-//    }
 }
 
 
