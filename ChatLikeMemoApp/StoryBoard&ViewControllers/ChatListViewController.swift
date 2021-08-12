@@ -185,7 +185,17 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
         alert.addAction(UIAlertAction( title: "戻る",style: UIAlertAction.Style.cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "変更確定",style: UIAlertAction.Style.default) { _ in
                             //(3)firebaseに保存をする処理を書く
-                            if let text = alertTextField?.text {} else { return }})
+                            if let text = alertTextField?.text {
+                                self.memoListTheme[indexPath.row] = text
+                                self.db.collection("memoTitle").document(self.memoListThemeDocId[indexPath.row]).updateData(["memoTitle": text]) { err in
+                                    if let err = err {
+                                        print("新タイトル保存エラー:\(err)")
+                                    } else {
+                                        print("新タイトル保存成功")
+                                        //ここからFirebaseのデータをとってくる処理を書く
+                                    }
+                                }
+                            } else { return }})
         self.present(alert, animated: true, completion: nil)
     }
     
