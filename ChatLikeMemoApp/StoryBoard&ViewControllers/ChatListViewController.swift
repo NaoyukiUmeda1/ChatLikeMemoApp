@@ -193,6 +193,27 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
                                     } else {
                                         print("新タイトル保存成功")
                                         //ここからFirebaseのデータをとってくる処理を書く
+                                        //Firebaseに保存してあるメモタイトルを取得
+                                        self.db.collection("memoTitle").order(by: "updatedAt", descending: true).getDocuments(completion: { (querySnapshot, error) in
+                                            if let querySnapshot = querySnapshot {
+                                                var titleArray:[String] = []
+                                                var documentIdArray:[String] = []
+                                                var updatedTimeArray:[Date] = []
+                                                
+                                                for doc in querySnapshot.documents {
+                                                    let data = doc.data()
+                                                    let timestamp = data["updatedAt"] as! Timestamp
+                                                    titleArray.append(data["memoTitle"] as! String)
+                                                    documentIdArray.append(doc.documentID)
+                                                    updatedTimeArray.append(timestamp.dateValue())
+                                                }
+                                                self.memoListTheme = titleArray
+                                                self.memoListThemeDocId = documentIdArray
+                                                self.memoListThemeUpdateTime = updatedTimeArray
+                                                self.chatListTableView.reloadData()
+                                            }
+                                        })
+                                        
                                     }
                                 }
                             } else { return }})
