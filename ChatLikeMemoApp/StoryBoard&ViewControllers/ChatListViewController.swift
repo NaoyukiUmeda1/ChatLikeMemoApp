@@ -47,7 +47,6 @@ class ChatListViewController: UIViewController {
     
     @IBAction func addNewMemoListButton(_ sender: Any) {
         var alertTextField: UITextField?
-        
         let alert = UIAlertController(
             title: "新しいメモリストを作成",
             message: "12文字まで入力可能",
@@ -122,7 +121,6 @@ class ChatListViewController: UIViewController {
         longPressGesture.allowableMovement = 10
         chatListTableView.addGestureRecognizer(longPressGesture)
         
-        
         self.navigationItem.title = "メモリスト"
         self.navigationController?.navigationBar.barTintColor = UIColor.purple
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
@@ -178,8 +176,11 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
         alert.addTextField(
             configurationHandler: {( textField: UITextField!) in
                 //(1)memoListThemeのメモ題名をもってくる
+                self.db.collection("memoTitle").document(self.memoListTheme[indexPath.row])
+                print(self.memoListTheme[indexPath.row])
                 //(2)書き換えの処理
                 alertTextField = textField
+                textField.text = self.memoListTheme[indexPath.row]
         })
         alert.addAction(UIAlertAction( title: "戻る",style: UIAlertAction.Style.cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "変更確定",style: UIAlertAction.Style.default) { _ in
@@ -208,6 +209,8 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = chatListTableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as! ChatListTableViewCell
         cell.memoTitleLabel.text = memoListTheme[indexPath.row]
+        //ここに書いてもどうしても文字が切れる
+        cell.memoTitleLabel.adjustsFontSizeToFitWidth = true
         cell.lastUpdatedTimeLabel.text = dateFormatterForlastUpdatedTimeLabel(date: memoListThemeUpdateTime[indexPath.row])
         return cell
     }
@@ -252,8 +255,9 @@ class ChatListTableViewCell: UITableViewCell {
         
     @IBOutlet weak var memoTitleLabel: UILabel!
     @IBOutlet weak var lastUpdatedTimeLabel: UILabel!
-
-    override func awakeFromNib() { }
+    
+    override func awakeFromNib() {
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }

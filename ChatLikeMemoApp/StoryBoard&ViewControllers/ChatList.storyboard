@@ -43,28 +43,30 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msT-hK-wKT">
-                                                    <rect key="frame" x="30" y="16" width="120" height="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msT-hK-wKT">
+                                                    <rect key="frame" x="30" y="16" width="119.5" height="38"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="メモタイトル">
                                                             <attributes>
                                                                 <font key="NSFont" size="20" name="HiraMaruProN-W4"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LastUpdated" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uU8-Eq-Pge">
-                                                    <rect key="frame" x="310.5" y="21" width="83.5" height="17"/>
+                                                    <rect key="frame" x="300.5" y="26.5" width="83.5" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="msT-hK-wKT" firstAttribute="top" secondItem="PCH-3V-dOM" secondAttribute="topMargin" constant="5" id="O97-0N-Qh5"/>
-                                                <constraint firstAttribute="trailing" secondItem="uU8-Eq-Pge" secondAttribute="trailing" constant="20" id="cod-6h-ZIz"/>
-                                                <constraint firstItem="uU8-Eq-Pge" firstAttribute="top" secondItem="PCH-3V-dOM" secondAttribute="topMargin" constant="10" id="qx1-9h-Y7c"/>
+                                                <constraint firstItem="msT-hK-wKT" firstAttribute="top" secondItem="PCH-3V-dOM" secondAttribute="topMargin" constant="5" id="5kC-4X-Gab"/>
+                                                <constraint firstItem="msT-hK-wKT" firstAttribute="centerY" secondItem="PCH-3V-dOM" secondAttribute="centerY" id="K6G-OH-1z3"/>
+                                                <constraint firstItem="uU8-Eq-Pge" firstAttribute="centerY" secondItem="PCH-3V-dOM" secondAttribute="centerY" id="a9Y-j9-YC2"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="uU8-Eq-Pge" secondAttribute="trailing" constant="10" id="f4p-xM-IBH"/>
                                                 <constraint firstItem="msT-hK-wKT" firstAttribute="leading" secondItem="PCH-3V-dOM" secondAttribute="leadingMargin" constant="10" id="yji-cJ-9eD"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -104,7 +106,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yB7-CH-GLq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-63" y="156"/>
+            <point key="canvasLocation" x="-63.768115942028992" y="155.35714285714286"/>
         </scene>
     </scenes>
     <resources>
