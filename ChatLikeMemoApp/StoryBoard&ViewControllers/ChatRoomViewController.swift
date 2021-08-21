@@ -136,6 +136,19 @@ extension ChatRoomViewController: UITableViewDelegate, UITableViewDataSource {
         return messages.count
     }
     
+//    // ★ 以下UIMenuControllerをカスタマイズするのに必要
+//    func tableView(tableView: UITableView, shouldShowMenuForRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+//        return true
+//    }
+//
+//    func tableView(tableView: UITableView, canPerformAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject) -> Bool {
+//         return true
+//     }
+//
+//     func tableView(tableView: UITableView, performAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject!) {
+//     }
+//    //上までUIMenucontrollerをカスタマイズのために必要なコード
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = chatRoomTableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as! ChatRoomTableViewCell

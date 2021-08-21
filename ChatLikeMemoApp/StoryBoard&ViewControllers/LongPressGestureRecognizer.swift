@@ -47,6 +47,19 @@ class LongPressGestureRecognizer: UITextView {
 
     override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
         return action == #selector(UIResponderStandardEditActions.copy)
-        //ここに表示内容を書いていく
+        
+//        //処理を書いていく
+//        if action == "remove:" || action == "copy:" | {
+//                    return true
+//
+//        } else {
+//                    return false
+//                }
+//            func remove(sender: AnyObject) {
+//              // 削除を押したときに呼ばれる
+//            }
+//            func copy(sender: AnyObject) {
+//              // コピーを押したときに呼ばれる
+//            }
     }
 }
