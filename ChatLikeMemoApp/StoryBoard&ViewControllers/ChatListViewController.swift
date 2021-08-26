@@ -271,6 +271,7 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
                 if let err = err {
                     print("ドキュメント削除エラー\(err)")
                 } else {
+                    
                     print("ドキュメント削除成功")
                 }
             }

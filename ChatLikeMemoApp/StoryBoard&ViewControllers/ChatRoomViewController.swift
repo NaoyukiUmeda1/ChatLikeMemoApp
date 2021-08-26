@@ -15,10 +15,13 @@ class ChatRoomViewController: UIViewController {
     private let cell = "cellId"
     private var messages = [String]()
     private var messageCreatedTime  = [Date]()
+    //memoDetailのドキュメントID
+    var memoDetailDocId : [String] = []
     
     var selectedMemoTitle : String?
     var selectedMemoTitleId : String?
     
+
     private lazy var chatInputAccesasryView: ChatInputAccesaryView = {
         let view = ChatInputAccesaryView()
         view.frame = .init(x: 0, y: 0, width: view.frame.width, height: 100)
@@ -50,19 +53,23 @@ class ChatRoomViewController: UIViewController {
         self.db.collection("memoDetail").whereField("memoTitleRef", isEqualTo: unwrappedSelectedMemoTitleId).order(by: "createdAt", descending: false).getDocuments(completion: { (querySnapshot, error) in
             if let querySnapshot = querySnapshot {
                 var memoDetailArray:[String] = []
+                var memoDetailIdArray:[String] = []
                 var memoDetailCreatedTimeArray:[Date] = []
                 for doc in querySnapshot.documents {
                     let data = doc.data()
                     let timestamp = data["createdAt"] as! Timestamp
                     
                     memoDetailArray.append(data["memoDetail"] as! String)
+                    memoDetailIdArray.append(doc.documentID)
                     memoDetailCreatedTimeArray.append(timestamp.dateValue())
                 }
                 self.messages = memoDetailArray
+                self.memoDetailDocId = memoDetailIdArray
                 self.messageCreatedTime = memoDetailCreatedTimeArray
                 //時刻の表示もされるようにデータをもってこれるようにした
                 print(self.messages)
                 print(self.messageCreatedTime)
+                print(self.memoDetailDocId)
                 self.chatRoomTableView.reloadData()
             }
         })
@@ -150,7 +157,16 @@ extension ChatRoomViewController: UITableViewDelegate, UITableViewDataSource {
     //スワイプしたセルを削除
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
+            //firebaseの中のmemoDetailを削除する
+            db.collection("memoDetail").document(memoDetailDocId[indexPath.row]).delete() { err in
+                if let err = err {
+                    print("ドキュメント削除エラー\(err)")
+                } else {
+                    print("ドキュメント削除成功")
+                }
+            }
             messages.remove(at: indexPath.row)
+            memoDetailDocId.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
         }
         
