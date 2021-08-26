@@ -147,6 +147,15 @@ extension ChatRoomViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    //スワイプしたセルを削除
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            messages.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
+        }
+        
+    }
+    
     //時刻のデザインを請け負う部分
     func dateFormatterForlastUpdatedTimeLabel(date: Date) -> String {
         let formatter = DateFormatter()
