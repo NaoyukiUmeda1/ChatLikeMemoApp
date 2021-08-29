@@ -30,17 +30,6 @@ class ChatRoomTableViewCell: UITableViewCell {
         super.awakeFromNib()
         messageTextView.layer.cornerRadius = 15
         backgroundColor = .clear
-        
-        UIMenuController.shared.menuItems = [.init(title: "testFunc", action: #selector(ChatRoomTableViewCell.testFunc))]
-        
-    }
-    
-    
-    @objc func testFunc() {
-            guard let range = messageTextView.selectedTextRange, let text = messageTextView.text(in: range),
-                !text.isEmpty else {
-                return
-            }
     }
     
     //メモ枠を自動で調整

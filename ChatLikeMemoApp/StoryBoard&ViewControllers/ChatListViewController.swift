@@ -107,7 +107,6 @@ class ChatListViewController: UIViewController {
                 }
             )
         self.present(alert, animated: true, completion: nil)
-        
     }
     
     override func viewDidLoad() {

@@ -16,7 +16,7 @@ class ChatRoomViewController: UIViewController {
     private var messages = [String]()
     private var messageCreatedTime  = [Date]()
     //memoDetailのドキュメントID
-    var memoDetailDocId : [String] = []
+    private var memoDetailDocId = [String]()
     
     var selectedMemoTitle : String?
     var selectedMemoTitleId : String?
@@ -91,7 +91,6 @@ class ChatRoomViewController: UIViewController {
 extension ChatRoomViewController: ChatInputAccesaryViewDelegate {
     
     func tappedSendButton(text: String) {
-
         //Firebaseにデータを保存
         let createdTime = FieldValue.serverTimestamp()
         guard let unwrappedSelectedMemoTitleId = selectedMemoTitleId else { return }
@@ -108,25 +107,31 @@ extension ChatRoomViewController: ChatInputAccesaryViewDelegate {
                             if let err = err {
                             print("Error")
                         } else {
-                            
                             Firestore.firestore().collection("memoDetail").whereField("memoTitleRef", isEqualTo: unwrappedSelectedMemoTitleId).order(by: "createdAt", descending: false).getDocuments(completion: { (querySnapshot, error) in
                                 if let querySnapshot = querySnapshot {
                                     var memoDetailArray:[String] = []
+                                    var messageIdArray:[String] = []
                                     var memoDetailCreatedTimeArray:[Date] = []
                                     
                                     for doc in querySnapshot.documents {
                                         let data = doc.data()
                                         let timestamp = data["createdAt"] as! Timestamp
                                         memoDetailArray.append(data["memoDetail"] as! String)
+                                        messageIdArray.append(doc.documentID)
+                                        //print(doc.documentID)
                                         memoDetailCreatedTimeArray.append(timestamp.dateValue())
+                                        self.chatRoomTableView.reloadData()
                                     }
                                     self.messages = memoDetailArray
+                                    self.memoDetailDocId = messageIdArray
                                     self.messageCreatedTime = memoDetailCreatedTimeArray
                                     self.chatRoomTableView.reloadData()
                                 }
                             })
                             self.chatRoomTableView.reloadData()
-                        return
+                            print(self.memoDetailDocId)
+                            print(self.messages)
+                            return
                         }
                         }
                         )}
