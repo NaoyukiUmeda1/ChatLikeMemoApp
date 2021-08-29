@@ -266,12 +266,11 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
     //スワイプしたセルを削除
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
-            //firebaseの中のmemoTitleの中のドキュメントを削除する
+            //memoTitleの中のドキュメントを削除する
             db.collection("memoTitle").document(memoListThemeDocId[indexPath.row]).delete() { err in
                 if let err = err {
                     print("ドキュメント削除エラー\(err)")
                 } else {
-                    
                     print("ドキュメント削除成功")
                 }
             }

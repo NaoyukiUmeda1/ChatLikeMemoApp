@@ -157,6 +157,7 @@ extension ChatRoomViewController: UITableViewDelegate, UITableViewDataSource {
     //スワイプしたセルを削除
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
+            
             //firebaseの中のmemoDetailを削除する
             db.collection("memoDetail").document(memoDetailDocId[indexPath.row]).delete() { err in
                 if let err = err {
@@ -167,9 +168,11 @@ extension ChatRoomViewController: UITableViewDelegate, UITableViewDataSource {
             }
             messages.remove(at: indexPath.row)
             memoDetailDocId.remove(at: indexPath.row)
+            messageCreatedTime.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
+            self.chatRoomTableView.reloadData()
         }
-        
+        self.chatRoomTableView.reloadData()
     }
     
     //時刻のデザインを請け負う部分
