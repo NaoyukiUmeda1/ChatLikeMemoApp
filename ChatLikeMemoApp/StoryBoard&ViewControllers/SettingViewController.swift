@@ -12,7 +12,7 @@ class SettingViewController: UIViewController {
     
     private let cellID = "settingCell"
     
-    var settingList : [String] = ["ログアウト","お問い合わせ","バージョン"]
+    var settingList : [String] = ["ログアウト","お問い合わせ","バージョン","利用規約","プライバシーポリシー"]
     
     @IBAction func tappedReturnToChatList(_ sender: Any) {
         print("ボタン：tappedReturnToChatList")
@@ -42,7 +42,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -84,6 +84,24 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         }
         else if indexPath.row == 2 {
             print("アプリのバージョン")
+        }
+        
+        else if indexPath.row == 3 {
+            print("利用規約")
+            tableView.deselectRow(at: indexPath as IndexPath, animated: true)
+            let url = NSURL(string: "https://naoyukiumeda1.tumblr.com/post/661309119501942784/%E5%88%A9%E7%94%A8%E8%A6%8F%E7%B4%84")
+            if UIApplication.shared.canOpenURL(url! as URL) {
+                UIApplication.shared.open(url! as URL, options: [:], completionHandler: nil)
+            }
+        }
+        
+        else if indexPath.row == 4 {
+            print("プライバシーポリシー")
+            tableView.deselectRow(at: indexPath as IndexPath, animated: true)
+            let url = NSURL(string: "https://naoyukiumeda1.tumblr.com/post/661309138947735552/%E3%83%97%E3%83%A9%E3%82%A4%E3%83%90%E3%82%B7%E3%83%BC%E3%83%9D%E3%83%AA%E3%82%B7%E3%83%BC")
+            if UIApplication.shared.canOpenURL(url! as URL) {
+                UIApplication.shared.open(url! as URL, options: [:], completionHandler: nil)
+            }
         }
         
     }
