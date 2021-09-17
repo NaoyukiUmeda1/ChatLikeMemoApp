@@ -72,8 +72,7 @@ class SignUpViewController: UIViewController {
     
     private func nonResisterAuthToFirebase()  {
         Auth.auth().signInAnonymously { authResult, error in
-            guard let user = authResult?.user else { return
-            }
+            guard let user = authResult?.user else { return }
             print(user.uid)
         }
         
