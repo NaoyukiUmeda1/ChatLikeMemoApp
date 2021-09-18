@@ -121,7 +121,6 @@ class SignUpViewController: UIViewController {
         
         emailTextField.delegate = self
         passwordTextField.delegate = self
-        passwordTextField.isSecureTextEntry = true
         usernameTextField.delegate = self
     }
     
