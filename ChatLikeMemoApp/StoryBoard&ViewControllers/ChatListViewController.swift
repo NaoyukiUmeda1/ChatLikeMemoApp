@@ -132,7 +132,7 @@ class ChatListViewController: UIViewController {
                 )
         
         //Firebaseに保存してあるメモタイトルを取得
-        self.db.collection("memoTitle").order(by: "updatedAt", descending: true).getDocuments(completion: { (querySnapshot, error) in
+        self.db.collection("memoTitle").whereField("uid", isEqualTo: Auth.auth().currentUser?.uid).order(by: "updatedAt", descending: true).getDocuments(completion: { (querySnapshot, error) in
             if let querySnapshot = querySnapshot {
                 var titleArray:[String] = []
                 var documentIdArray:[String] = []
@@ -193,7 +193,7 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
                                         print("新タイトル保存成功")
                                         //ここからFirebaseのデータをとってくる処理を書く
                                         //Firebaseに保存してあるメモタイトルを取得
-                                        self.db.collection("memoTitle").order(by: "updatedAt", descending: true).getDocuments(completion: { (querySnapshot, error) in
+                                        self.db.collection("memoTitle").whereField("uid", isEqualTo: Auth.auth().currentUser?.uid).order(by: "updatedAt", descending: true).getDocuments(completion: { (querySnapshot, error) in
                                             if let querySnapshot = querySnapshot {
                                                 var titleArray:[String] = []
                                                 var documentIdArray:[String] = []

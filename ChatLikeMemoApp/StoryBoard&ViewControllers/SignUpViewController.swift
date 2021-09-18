@@ -31,6 +31,7 @@ class SignUpViewController: UIViewController {
         guard let email = emailTextField.text else { return }
         //デフォルトでは6桁以上のパスワードでないと登録できない
         guard let password = passwordTextField.text else { return }
+        //passwordTextField.isSecureTextEntry = true
         
         Auth.auth().createUser(withEmail: email, password: password) { (res, err) in
             if let err = err {
@@ -120,6 +121,7 @@ class SignUpViewController: UIViewController {
         
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        passwordTextField.isSecureTextEntry = true
         usernameTextField.delegate = self
     }
     
