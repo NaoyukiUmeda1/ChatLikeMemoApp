@@ -79,7 +79,7 @@ class ChatListViewController: UIViewController {
                                 print("配列にメモ題名追加成功")
                                 //ここからFirebaseからデータを取得して一覧表示する
                                 // FirestoreからTodoを取得する処理
-                                self.db.collection("memoTitle").whereField("uid", isEqualTo: Auth.auth().currentUser?.uid).order(by: "createdAt", descending: false).getDocuments(completion: { (querySnapshot,error) in
+                                self.db.collection("memoTitle").whereField("uid", isEqualTo: Auth.auth().currentUser?.uid).order(by: "createdAt", descending: true).getDocuments(completion: { (querySnapshot,error) in
                                     if let querySnapshot = querySnapshot {
                                         var titleArray:[String] = []
                                         var documentIdArray:[String] = []
@@ -205,6 +205,7 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
                                                     titleArray.append(data["memoTitle"] as! String)
                                                     documentIdArray.append(doc.documentID)
                                                     updatedTimeArray.append(timestamp.dateValue())
+                                                    print(updatedTimeArray)
                                                 }
                                                 self.memoListTheme = titleArray
                                                 self.memoListThemeDocId = documentIdArray
